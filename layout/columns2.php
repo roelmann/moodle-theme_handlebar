@@ -39,16 +39,34 @@ if ($navdraweropen) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $preblockshtml = $OUTPUT->blocks('side-pre');
 $topblockshtml = $OUTPUT->blocks('side-top');
+$blocksslider1html = $OUTPUT->blocks('side-sliderone');
+$blocksslider2html = $OUTPUT->blocks('side-slidertwo');
+$blocksslider3html = $OUTPUT->blocks('side-sliderthree');
+$blocksslider4html = $OUTPUT->blocks('side-sliderfour');
+
 $haspreblocks = strpos($preblockshtml, 'data-block=') !== false;
 $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;
+$hasslideroneblocks = strpos($blocksslider1html, 'data-block=') !== false;
+$hasslidertwoblocks = strpos($blocksslider2html, 'data-block=') !== false;
+$hassliderthreeblocks = strpos($blocksslider3html, 'data-block=') !== false;
+$hassliderfourblocks = strpos($blocksslider4html, 'data-block=') !== false;
+
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $preblockshtml,
     'sidetopblocks' => $topblockshtml,
+    'blocksslider1' => $blocksslider1html,
+    'blocksslider2' => $blocksslider2html,
+    'blocksslider3' => $blocksslider3html,
+    'blocksslider4' => $blocksslider4html,
     'haspreblocks' => $haspreblocks,
     'hastopblocks' => $hastopblocks,
+    'hasblocksslider1' => $hasslideroneblocks,
+    'hasblocksslider2' => $hasslidertwoblocks,
+    'hasblocksslider3' => $hassliderthreeblocks,
+    'hasblocksslider4' => $hassliderfourblocks,
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,

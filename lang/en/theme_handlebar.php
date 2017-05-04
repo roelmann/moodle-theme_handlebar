@@ -31,6 +31,10 @@ $string['configtitle'] = 'Handlebar';
 $string['pluginname'] = 'handlebar';
 $string['region-side-pre'] = 'Right';
 $string['region-side-top'] = 'TopBar';
+$string['region-side-sliderone'] = 'Block-Slider1';
+$string['region-side-slidertwo'] = 'Block-Slider2';
+$string['region-side-sliderthree'] = 'Block-Slider3';
+$string['region-side-sliderfour'] = 'Block-Slider4';
 
 $string['generalsettings'] = 'General settings';
 $string['advancedsettings'] = 'Advanced settings';

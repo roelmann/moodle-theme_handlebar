@@ -45,8 +45,16 @@
         "bodyattributes":"",
         "sidepreblocks": "<h2>Blocks html goes here</h2>",
         "sidetopblocks": "<h2>Blocks html goes here</h2>",
+        "blocksslider1": "<h2>Blocks html goes here</h2>",
+        "blocksslider2": "<h2>Blocks html goes here</h2>",
+        "blocksslider3": "<h2>Blocks html goes here</h2>",
+        "blocksslider4": "<h2>Blocks html goes here</h2>",
         "haspreblocks":true,
         "hastopblocks":true,
+        "hasblocksslider1":true,
+        "hasblocksslider2":true,
+        "hasblocksslider3":true,
+        "hasblocksslider4":true,
         "navdraweropen":true,
         "regionmainsettingsmenu": "",
         "hasregionmainsettingsmenu": false
@@ -100,6 +108,26 @@
                     {{{ sidepreblocks }}}
                 </section>
                 {{/haspreblocks}}
+                {{#hasblocksslider1}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ blocksslider1 }}}
+                </section>
+                {{/hasblocksslider1}}
+                {{#hasblocksslider2}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ blocksslider2 }}}
+                </section>
+                {{/hasblocksslider2}}
+                {{#hasblocksslider3}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ blocksslider3 }}}
+                </section>
+                {{/hasblocksslider3}}
+                {{#hasblocksslider4}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ blocksslider4 }}}
+                </section>
+                {{/hasblocksslider4}}
             </div>
         </div>
     </div>

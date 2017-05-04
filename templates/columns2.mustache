@@ -99,6 +99,7 @@
                         <div class="region_main_settings_menu_proxy"></div>
                     {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
+                        {{{ output.blockmodalbuttons }}}
                     {{{ output.main_content }}}
                     {{{ output.course_content_footer }}}
                     </div>
@@ -109,22 +110,22 @@
                 </section>
                 {{/haspreblocks}}
                 {{#hasblocksslider1}}
-                <section data-region="blocks-column" class="hidden-print">
+                <section data-region="blocks-column" class="hidden-print modal fade" id="slider1_blocksmodal" aria-labelledby="blockslider1modal">
                     {{{ blocksslider1 }}}
                 </section>
                 {{/hasblocksslider1}}
                 {{#hasblocksslider2}}
-                <section data-region="blocks-column" class="hidden-print">
+                <section data-region="blocks-column" class="hidden-print modal fade" id="slider2_blocksmodal" aria-labelledby="blockslider2modal">
                     {{{ blocksslider2 }}}
                 </section>
                 {{/hasblocksslider2}}
                 {{#hasblocksslider3}}
-                <section data-region="blocks-column" class="hidden-print">
+                <section data-region="blocks-column" class="hidden-print modal fade" id="slider3_blocksmodal" aria-labelledby="blockslider3modal">
                     {{{ blocksslider3 }}}
                 </section>
                 {{/hasblocksslider3}}
                 {{#hasblocksslider4}}
-                <section data-region="blocks-column" class="hidden-print">
+                <section data-region="blocks-column" class="hidden-print modal fade" id="slider4_blocksmodal" aria-labelledby="blockslider4modal">
                     {{{ blocksslider4 }}}
                 </section>
                 {{/hasblocksslider4}}

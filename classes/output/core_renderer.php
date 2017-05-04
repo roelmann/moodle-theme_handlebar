@@ -210,4 +210,46 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $footnote;
     }
 
+    public function blockmodalbuttons() {
+        $buttonshtml = '';
+        $buttonshtml .= '<div class = "blockmodalbuttons">';
+        $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
+        $buttonshtml .= 'data-target="#slider1_blocksmodal">Slider1</button>';
+        $buttonshtml .= '<button type="button" class="btn btn-danger pageblockbtn" data-toggle="modal"';
+        $buttonshtml .= 'data-target="#slider2_blocksmodal">Slider2</button>';
+        $buttonshtml .= '<button type="button" class="btn btn-info pageblockbtn" data-toggle="modal"';
+        $buttonshtml .= 'data-target="#slider3_blocksmodal">Slider3</button>';
+        $buttonshtml .= '<button type="button" class="btn btn-success pageblockbtn" data-toggle="modal"';
+        $buttonshtml .= 'data-target="#slider4_blocksmodal">Slider4</button>';
+        $buttonshtml .= '</div>';
+
+        return $buttonshtml;
+    }
+
+    public function blocksmodal($region) {
+        global $OUTPUT, $PAGE;
+        $blockmodalhtml = '';
+        $blockmodalhtml .= '<div class="modal-dialog blocksmodal" role="document">';
+        $blockmodalhtml .= '<div class="modal-content">';
+
+        $blockmodalhtml .= '<div class="modal-header">';
+        $blockmodalhtml .= '<button type="button" class="btn btn-primary btn-large" data-dismiss="modal"';
+        $blockmodalhtml .= 'aria-label="Close"><span aria-hidden="true">&times;</span>';
+        $blockmodalhtml .= '</button>';
+        $blockmodalhtml .= '<h3 class="modal-title">Block Modal Page Title</h3>';
+        $blockmodalhtml .= '<h4 class="modal-title">Create strings for these</h4>';
+        $blockmodalhtml .= '</div>';
+
+        $blockmodalhtml .= '<div class="modal-body">';
+        $blockmodalhtml .= $OUTPUT->blocks($region);
+        $blockmodalhtml .= '</div>';
+
+        $blockmodalhtml .= '<div class="modal-footer">';
+        $blockmodalhtml .= '</div>';
+
+        $blockmodalhtml .= '</div>';
+        $blockmodalhtml .= '</div>';
+
+        return $blockmodalhtml;
+    }
 }

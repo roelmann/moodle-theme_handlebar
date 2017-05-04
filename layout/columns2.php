@@ -39,10 +39,11 @@ if ($navdraweropen) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $preblockshtml = $OUTPUT->blocks('side-pre');
 $topblockshtml = $OUTPUT->blocks('side-top');
-$blocksslider1html = $OUTPUT->blocks('side-sliderone');
-$blocksslider2html = $OUTPUT->blocks('side-slidertwo');
-$blocksslider3html = $OUTPUT->blocks('side-sliderthree');
-$blocksslider4html = $OUTPUT->blocks('side-sliderfour');
+
+$blocksslider1html = $OUTPUT->blocksmodal('side-sliderone');
+$blocksslider2html = $OUTPUT->blocksmodal('side-slidertwo');
+$blocksslider3html = $OUTPUT->blocksmodal('side-sliderthree');
+$blocksslider4html = $OUTPUT->blocksmodal('side-sliderfour');
 
 $haspreblocks = strpos($preblockshtml, 'data-block=') !== false;
 $hastopblocks = strpos($topblockshtml, 'data-block=') !== false;

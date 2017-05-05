@@ -105,3 +105,59 @@ header#page-header .card .withimage {
     flex: 1 1 auto;
     align-self: auto;
 }
+
+/* BLOCKS MODAL.
+ * ============= */
+.blockmodalbuttons {
+    float:right;
+    width:50px;
+    right:0;
+    top:30%;
+    position:fixed;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+
+    button.pageblockbtn {
+        margin-bottom:10px;
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+            opacity:0.6;
+    }
+}
+
+
+section#slider1_blocksmodal,
+section#slider2_blocksmodal,
+section#slider3_blocksmodal,
+section#slider4_blocksmodal {
+    width:100%;
+    height:100%;
+}
+
+.blocksmodal.modal-dialog {
+    margin: 5% 7.5%;
+    max-width:100%; /* Override core modal-dialogue max width setting. */
+    width:85%;
+
+    .modal-body .block-region {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: stretch;
+        align-items: stretch;
+
+        .block {
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+            margin:0 5px;
+        }
+    }
+}

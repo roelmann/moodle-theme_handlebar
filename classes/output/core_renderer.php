@@ -214,21 +214,40 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $buttonshtml = '';
         $buttonshtml .= '<div class = "blockmodalbuttons">';
         $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider1_blocksmodal">Slider1</button>';
+        $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></i></button>';
         $buttonshtml .= '<button type="button" class="btn btn-danger pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider2_blocksmodal">Slider2</button>';
+        $buttonshtml .= 'data-target="#slider2_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
         $buttonshtml .= '<button type="button" class="btn btn-info pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider3_blocksmodal">Slider3</button>';
+        $buttonshtml .= 'data-target="#slider3_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
         $buttonshtml .= '<button type="button" class="btn btn-success pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider4_blocksmodal">Slider4</button>';
+        $buttonshtml .= 'data-target="#slider4_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
         $buttonshtml .= '</div>';
 
         return $buttonshtml;
     }
 
     public function blocksmodal($region) {
-        global $OUTPUT, $PAGE;
+        global $CFG, $USER, $OUTPUT, $PAGE;
         $blockmodalhtml = '';
+        $blocksmodalusersection = '';
+        $maintitle = 'Main Modal Page title';
+        $subtitle = 'Make strings for these headings';
+        if (isloggedin()) {
+            $course = $this->page->course;
+            $context = context_course::instance($course->id);
+
+            if ($region == 'side-sliderone') {
+                if (has_capability('moodle/course:viewhiddenactivities', $context)) {
+                    $maintitle = 'MainStaffTitle';
+                    $subtitle = 'Staff page sub title - make strings for these';
+                    $blocksmodalusersection .= $OUTPUT->staffblocksmodal();
+                } else {
+                    $maintitle = 'MainStudentTitle';
+                    $subtitle = 'Student page sub title - make strings for these';
+                    $blocksmodalusersection .= $OUTPUT->studentblocksmodal();
+                }
+            }
+        }
         $blockmodalhtml .= '<div class="modal-dialog blocksmodal" role="document">';
         $blockmodalhtml .= '<div class="modal-content">';
 
@@ -236,11 +255,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $blockmodalhtml .= '<button type="button" class="btn btn-primary btn-large" data-dismiss="modal"';
         $blockmodalhtml .= 'aria-label="Close"><span aria-hidden="true">&times;</span>';
         $blockmodalhtml .= '</button>';
-        $blockmodalhtml .= '<h3 class="modal-title">Block Modal Page Title</h3>';
-        $blockmodalhtml .= '<h4 class="modal-title">Create strings for these</h4>';
+        $blockmodalhtml .= '<h3 class="modal-title">' . $maintitle . '</h3>';
+        $blockmodalhtml .= '<h4 class="modal-title">' . $subtitle . ' : ' . $region . '</h4>';
         $blockmodalhtml .= '</div>';
 
         $blockmodalhtml .= '<div class="modal-body">';
+        $blockmodalhtml .= $blocksmodalusersection;
         $blockmodalhtml .= $OUTPUT->blocks($region);
         $blockmodalhtml .= '</div>';
 
@@ -252,4 +272,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $blockmodalhtml;
     }
+
+    public function staffblocksmodal() {
+        $staffmodal = '';
+        $staffmodal .= '<p>What are the most needed functions and displays to add here?</p>';
+        $staffmodal .= '<p>Look at Chris` links and at the Course Admin menu</p>';
+        $staffmodal .= '<p>Possibly add settings to determine what appears?</p>';
+        return $staffmodal;
+    }
+
+    public function studentblocksmodal() {
+        $studentmodal = '';
+        $studentmodal .= '<p>What are the most needed functions and displays to add here?</p>';
+        $studentmodal .= '<p>Completion/Grade etc? Messages? Quizes and Assessments due?</p>';
+        return $studentmodal;
+    }
+
 }

@@ -211,16 +211,33 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function blockmodalbuttons() {
+        global $OUTPUT, $PAGE;
+        $blocksslider2html = $OUTPUT->blocksmodal('side-slidertwo');
+        $blocksslider3html = $OUTPUT->blocksmodal('side-sliderthree');
+        $blocksslider4html = $OUTPUT->blocksmodal('side-sliderfour');
+
+        $hasslidertwoblocks = strpos($blocksslider2html, 'data-block=') !== false;
+        $hassliderthreeblocks = strpos($blocksslider3html, 'data-block=') !== false;
+        $hassliderfourblocks = strpos($blocksslider4html, 'data-block=') !== false;
+
         $buttonshtml = '';
         $buttonshtml .= '<div class = "blockmodalbuttons">';
-        $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></i></button>';
-        $buttonshtml .= '<button type="button" class="btn btn-danger pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider2_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
-        $buttonshtml .= '<button type="button" class="btn btn-info pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider3_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
-        $buttonshtml .= '<button type="button" class="btn btn-success pageblockbtn" data-toggle="modal"';
-        $buttonshtml .= 'data-target="#slider4_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+        if ($PAGE->pagelayout == 'course') {
+            $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
+            $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></i></button>';
+        }
+        if ($hasslidertwoblocks) {
+            $buttonshtml .= '<button type="button" class="btn btn-danger pageblockbtn" data-toggle="modal"';
+            $buttonshtml .= 'data-target="#slider2_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+        }
+        if ($hassliderthreeblocks) {
+            $buttonshtml .= '<button type="button" class="btn btn-info pageblockbtn" data-toggle="modal"';
+            $buttonshtml .= 'data-target="#slider3_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+        }
+        if ($hassliderfourblocks) {
+            $buttonshtml .= '<button type="button" class="btn btn-success pageblockbtn" data-toggle="modal"';
+            $buttonshtml .= 'data-target="#slider4_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+        }
         $buttonshtml .= '</div>';
 
         return $buttonshtml;

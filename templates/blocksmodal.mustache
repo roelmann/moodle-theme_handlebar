@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_handlebar/staffmodal
+
+    Handlebar Staff blocks modal display.
+
+    Context variables required for this template:
+            * maintitle
+            * subtitle
+            * blocksmodalusersection
+            * blockscontent
+
+    Example context (json):
+    {
+            'maintitle'=>$maintitle,
+            'subtitle'=>$subtitle,
+            'blocksmodalusersection'=>$blocksmodalusersection,
+            'blockscontent'=>$blockscontent
+}}
+
+<div class="modal-dialog blocksmodal" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" style="float:right" class="btn btn-primary btn-large" data-dismiss="modal"
+                aria-label="Close"><i class = "fa fa-times" aria-hidden="true"></i>
+            </button>
+            <h3 class="modal-title">{{{maintitle}}}</h3>
+            <h4 class="modal-title">{{subtitle}}</h4>
+        </div>
+        <div class="modal-body">
+            {{#blocksmodalusersection}}
+                {{{ blocksmodalusersection }}}
+            {{/blocksmodalusersection}}
+            {{#blockscontent}}
+                {{{ blockscontent }}}
+            {{/blockscontent}}
+        </div>
+    </div>
+</div>

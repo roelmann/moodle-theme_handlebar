@@ -124,3 +124,38 @@ $string['sociallinkicondesc'] = 'Enter the fontawesome name of the icon for your
 $string['contentsettings'] = 'Content areas';
 $string['footnote'] = 'Footnote.';
 $string['footnotedesc'] = 'Footnote content editor for main footer';
+
+// Modal sliders.
+$string['defaultmodaltitle'] = 'Side-Blocks page';
+$string['defaultmodaltitledesc'] = 'These side-block pages can be used to add blocks off the main course page, but still easily available. Staff and Students also have a dedicated course details tab.';
+$string['staffmodal'] = 'Staff course management';
+$string['staffmodaldesc'] = 'Useful links and staff only blocks and content related to this course';
+$string['studentmodal'] = 'Student course details';
+$string['studentmodaldesc'] = 'Useful links and student only blocks and content related to this course';
+// Group card titles.
+$string['modalcoursesettings'] = 'Manage this course';
+$string['modalusers'] = 'Manage course users';
+$string['modalreports'] = 'Course reports';
+$string['modalstaffotherlinks'] = 'Other links';
+// Course links.
+$string['editcourse'] = 'Edit this course settings';
+$string['resetcourse'] = 'Reset this course';
+$string['coursebackup'] = 'Create course/item backup';
+$string['courserestore'] = 'Restore an existing course/item backup';
+$string['courseimport'] = 'Import content from another course';
+$string['courserecyclebin'] = 'Recycle bin';
+$string['courseadmin'] = 'Full course administration options';
+// User links.
+$string['manageusers'] = 'Enrolled users';
+$string['manualenrol'] = 'Manually enrol new users';
+$string['usergroups'] = 'Groups';
+$string['enrolmentmethods'] = 'Enrolment Methods';
+// Course logs.
+$string['usergrades'] = 'Grading overview';
+$string['logs'] = 'Full course logs';
+$string['livelogs'] = 'Live course logs';
+$string['participation'] = 'Participation report';
+$string['activity'] = 'Activity report';
+// Other links.
+$string['otherlinks'] = 'Other links';
+$string['recyclebin'] = 'Recycle Bin';

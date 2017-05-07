@@ -144,7 +144,27 @@ section#slider4_blocksmodal {
     margin: 5% 7.5%;
     max-width:100%; /* Override core modal-dialogue max width setting. */
     width:85%;
-
+    p {
+        font-size: $font-size-sm
+    }
+    h1 {
+        font-size: $font-size-h1 * 0.85
+    }
+    h2 {
+        font-size: $font-size-h2 * 0.85
+    }
+    h3 {
+        font-size: $font-size-h3 * 0.85
+    }
+    h4 {
+        font-size: $font-size-h4 * 0.85
+    }
+    h5 {
+        font-size: $font-size-h5 * 0.85
+    }
+    h6 {
+        font-size: $font-size-h6 * 0.85
+    }
     .modal-body .block-region {
         display: flex;
         flex-direction: row;
@@ -160,4 +180,21 @@ section#slider4_blocksmodal {
             margin:0 5px;
         }
     }
+}
+
+.modalcards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: stretch;
+        align-items: stretch;
+
+        .card {
+            order: 0;
+            flex: 1 1 auto;
+            align-self: auto;
+            margin:0 5px;
+        }
+
 }

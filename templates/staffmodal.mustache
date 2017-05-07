@@ -15,31 +15,17 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_handlebar/staffmodal
+    @template theme_handlebar/studentmodal
 
-    Handlebar Staff blocks modal display.
+    Handlebar Student blocks modal display.
 
     Context variables required for this template:
-            * hascoursegroup
-            * hasusersgroup
-            * hasreportsgroup
-            * hasothergroup
-            * coursegrouplinks
-            * usersgrouplinks
-            * reportsgrouplinks
-            * othergrouplinks
+        *
 
     Example context (json):
     {
-            'hascoursegroup'=>$hascoursegroup,
-            'coursegrouplinks'=>$coursegrouplinks,
-            'hasusersgroup'=>$hasusersgroup,
-            'usersgrouplinks'=>$usersgrouplinks,
-            'hasreportsgroup'=>$hasreportsgroup,
-            'reportsgrouplinks'=>$reportsgrouplinks,
-            'hasothergroup'=>$hasothergroup,
-            'othergrouplinks'=>$othergrouplinks
 
+    }
 }}
 
 <div class="modalcards">
@@ -116,6 +102,6 @@
     </div>
 {{/hasothergroup}}
 <div class="alert alert-info">
-	<p>You can also add blocks below here, by setting the location in each block configuration page. Drag and Drop is not available as this page does not appear on the main course page to allow the blocks to be dragged.</p>
+    <p>You can also add blocks below here, by setting the location in each block configuration page. Drag and Drop is not available as this page does not appear on the main course page to allow the blocks to be dragged.</p>
 </div>
 </div>

@@ -31,7 +31,7 @@ $string['configtitle'] = 'Handlebar';
 $string['pluginname'] = 'handlebar';
 $string['region-side-pre'] = 'Right';
 $string['region-side-top'] = 'TopBar';
-$string['region-side-sliderone'] = 'Block-Slider1';
+$string['region-side-sliderone'] = 'Course management';
 $string['region-side-slidertwo'] = 'Block-Slider2';
 $string['region-side-sliderthree'] = 'Block-Slider3';
 $string['region-side-sliderfour'] = 'Block-Slider4';
@@ -137,6 +137,7 @@ $string['modalcoursesettings'] = 'Manage this course';
 $string['modalusers'] = 'Manage course users';
 $string['modalreports'] = 'Course reports';
 $string['modalstaffotherlinks'] = 'Other links';
+$string['modalstudentlinks'] = 'Course links';
 // Course links.
 $string['editcourse'] = 'Edit this course settings';
 $string['resetcourse'] = 'Reset this course';
@@ -159,3 +160,5 @@ $string['activity'] = 'Activity report';
 // Other links.
 $string['otherlinks'] = 'Other links';
 $string['recyclebin'] = 'Recycle Bin';
+// Student modal page links.
+$string['modalstudentlinks'] = 'Course links';

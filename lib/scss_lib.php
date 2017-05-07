@@ -118,7 +118,8 @@ function theme_handlebar_get_pre_scss($theme) {
         // Add a fade in transition to avoid the flicker on course headers ***.
         $prescss .= 'header#page-header .card {background-image: url("'.$headerbg.'"); background-size:100% 100%;}';
     } else {
-        $prescss .= 'header#page-header .card {background-image: url([[pix:theme|banner_transparent]]); background-size:100% 100%;}';
+        $prescss .= 'header#page-header .card {background-image: url([[pix:theme|banner_transparent]]);
+            background-size:100% 100%;}';
     }
 
     // Set the background image for the page.

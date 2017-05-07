@@ -80,7 +80,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             if ($acceptedtypes !== '*') {
                 // Filter only files with allowed extensions.
                 require_once($CFG->libdir. '/filelib.php');
-                foreach ($files as $key=>$file) {
+                foreach ($files as $key => $file) {
                     if (!file_extension_in_typegroup($file->get_filename(), $acceptedtypes)) {
                         unset($files[$key]);
                     }
@@ -105,14 +105,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         // Create html for header.
-        $html = html_writer::start_tag('header', array('id'=>'page-header', 'class'=>'row'));
+        $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
         $html .= html_writer::start_div('col-xs-12 p-a-1');
         $html .= html_writer::start_div('card');
 
         // If course image display it in separate div to allow css styling of inline style.
         if ($courseimage) {
             $html .= html_writer::start_div('withimage', array(
-                'style'=>'background-image: url("'.$courseimage.'");background-size: 100% 100%;'));
+                'style' => 'background-image: url("'.$courseimage.'");background-size: 100% 100%;'));
         }
 
         $html .= html_writer::start_div('card-block');
@@ -122,14 +122,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $html .= html_writer::end_div();
         $pageheadingbutton = $this->page_heading_button();
         if (empty($PAGE->layout_options['nonavbar'])) {
-            $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id'=>'page-navbar'));
-            $html .= html_writer::tag('div', $this->navbar(), array('class'=>'breadcrumb-nav'));
+            $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
+            $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
             $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button pull-xs-right');
             $html .= html_writer::end_div();
         } else if ($pageheadingbutton) {
             $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button nonavbar pull-xs-right');
         }
-        $html .= html_writer::tag('div', $this->course_header(), array('id'=>'course-header'));
+        $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
         $html .= html_writer::end_div(); // End card-block.
 
         if ($courseimage) {
@@ -172,28 +172,28 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $socialcontext = [
 
             // If any of the above social networks are true, sets this to true.
-            'hassocialnetworks'=>($hasfacebook || $hastwitter || $hasgoogleplus || $hasflickr || $hasinstagram
+            'hassocialnetworks' => ($hasfacebook || $hastwitter || $hasgoogleplus || $hasflickr || $hasinstagram
                 || $hasvk || $haslinkedin || $haspinterest || $hasskype || $haslinkedin || $haswebsite || $hasyoutube
                 || $hasblog ||$hasvimeo || $hastumblr || $hassocial1 || $hassocial2 || $hassocial3) ? true : false,
 
-            'socialicons'=>array(
-                array('haslink'=>$hasfacebook, 'linkicon'=>'facebook'),
-                array('haslink'=>$hastwitter, 'linkicon'=>'twitter'),
-                array('haslink'=>$hasgoogleplus, 'linkicon'=>'google-plus'),
-                array('haslink'=>$haslinkedin, 'linkicon'=>'linkedin'),
-                array('haslink'=>$hasyoutube, 'linkicon'=>'youtube'),
-                array('haslink'=>$hasflickr, 'linkicon'=>'flickr'),
-                array('haslink'=>$hasvk, 'linkicon'=>'vk'),
-                array('haslink'=>$haspinterest, 'linkicon'=>'pinterest'),
-                array('haslink'=>$hasinstagram, 'linkicon'=>'instagram'),
-                array('haslink'=>$hasskype, 'linkicon'=>'skype'),
-                array('haslink'=>$haswebsite, 'linkicon'=>'globe'),
-                array('haslink'=>$hasblog, 'linkicon'=>'bookmark'),
-                array('haslink'=>$hasvimeo, 'linkicon'=>'vimeo-square'),
-                array('haslink'=>$hastumblr, 'linkicon'=>'tumblr'),
-                array('haslink'=>$hassocial1, 'linkicon'=>$social1icon),
-                array('haslink'=>$hassocial2, 'linkicon'=>$social2icon),
-                array('haslink'=>$hassocial3, 'linkicon'=>$social3icon),
+            'socialicons' => array(
+                array('haslink' => $hasfacebook, 'linkicon' => 'facebook'),
+                array('haslink' => $hastwitter, 'linkicon' => 'twitter'),
+                array('haslink' => $hasgoogleplus, 'linkicon' => 'google-plus'),
+                array('haslink' => $haslinkedin, 'linkicon' => 'linkedin'),
+                array('haslink' => $hasyoutube, 'linkicon' => 'youtube'),
+                array('haslink' => $hasflickr, 'linkicon' => 'flickr'),
+                array('haslink' => $hasvk, 'linkicon' => 'vk'),
+                array('haslink' => $haspinterest, 'linkicon' => 'pinterest'),
+                array('haslink' => $hasinstagram, 'linkicon' => 'instagram'),
+                array('haslink' => $hasskype, 'linkicon' => 'skype'),
+                array('haslink' => $haswebsite, 'linkicon' => 'globe'),
+                array('haslink' => $hasblog, 'linkicon' => 'bookmark'),
+                array('haslink' => $hasvimeo, 'linkicon' => 'vimeo-square'),
+                array('haslink' => $hastumblr, 'linkicon' => 'tumblr'),
+                array('haslink' => $hassocial1, 'linkicon' => $social1icon),
+                array('haslink' => $hassocial2, 'linkicon' => $social2icon),
+                array('haslink' => $hassocial3, 'linkicon' => $social3icon),
             )
         ];
 
@@ -221,7 +221,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $hassliderfourblocks = strpos($blocksslider4html, 'data-block=') !== false;
 
         $buttonshtml = '';
-        $buttonshtml .= '<div class = "blockmodalbuttons">';
+        $buttonshtml .= '<div class="blockmodalbuttons">';
         if ($PAGE->pagelayout == 'course') {
             $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
             $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></i></button>';
@@ -247,16 +247,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $CFG, $USER, $OUTPUT, $PAGE, $COURSE;
         $blockmodalhtml = '';
         $blocksmodalusersection = '';
-        $maintitle = get_string('defaultmodaltitle','theme_handlebar');
-        $subtitle = get_string('defaultmodaltitledesc','theme_handlebar');
+        $maintitle = get_string('defaultmodaltitle', 'theme_handlebar');
+        $subtitle = get_string('defaultmodaltitledesc', 'theme_handlebar');
         if (isloggedin() && ISSET($COURSE->id) && $COURSE->id > 1) {
             $course = $this->page->course;
             $context = context_course::instance($course->id);
 
             if ($region == 'side-sliderone') {
                 if (has_capability('moodle/course:viewhiddenactivities', $context)) {
-                    $maintitle = get_string('staffmodal','theme_handlebar');
-                    $subtitle = get_string('staffmodaldesc','theme_handlebar');
+                    $maintitle = get_string('staffmodal', 'theme_handlebar');
+                    $subtitle = get_string('staffmodaldesc', 'theme_handlebar');
                     $blocksmodalusersection .= $OUTPUT->staffblocksmodal();
                 } else {
                     $maintitle = 'MainStudentTitle';
@@ -268,10 +268,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $blockscontent = $OUTPUT->blocks($region);
 
         $blocksmodalcontext = [
-            'maintitle'=>$maintitle,
-            'subtitle'=>$subtitle,
-            'blocksmodalusersection'=>$blocksmodalusersection,
-            'blockscontent'=>$blockscontent
+            'maintitle' => $maintitle,
+            'subtitle' => $subtitle,
+            'blocksmodalusersection' => $blocksmodalusersection,
+            'blockscontent' => $blockscontent
         ];
 
         return $this->render_from_template('theme_handlebar/blocksmodal', $blocksmodalcontext);
@@ -282,108 +282,109 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $PAGE, $DB, $COURSE;
         if (ISSET($COURSE->id) && $COURSE->id > 1) {
             $hascoursegroup = array(
-                'title'=>get_string('modalcoursesettings', 'theme_handlebar'),
-                'icon'=>'cogs'
+                'title' => get_string('modalcoursesettings', 'theme_handlebar'),
+                'icon' => 'cogs'
             );
             $hasusersgroup = array(
-                'title'=>get_string('modalusers', 'theme_handlebar'),
-                'icon'=>'users'
+                'title' => get_string('modalusers', 'theme_handlebar'),
+                'icon' => 'users'
             );
             $hasreportsgroup = array(
-                'title'=>get_string('modalreports', 'theme_handlebar'),
-                'icon'=>'id-card'
+                'title' => get_string('modalreports', 'theme_handlebar'),
+                'icon' => 'id-card'
             );
             $hasothergroup = array(
-                'title'=>get_string('modalstaffotherlinks', 'theme_handlebar'),
-                'icon'=>'random'
+                'title' => get_string('modalstaffotherlinks', 'theme_handlebar'),
+                'icon' => 'random'
             );
 
             $coursegrouplinks = array(
                 array(
-                    'name'=>get_string('editcourse', 'theme_handlebar'),
-                    'url'=>new moodle_url('/course/edit.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('editcourse', 'theme_handlebar'),
+                    'url' => new moodle_url('/course/edit.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('resetcourse', 'theme_handlebar'),
-                    'url'=>new moodle_url('/course/reset.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('resetcourse', 'theme_handlebar'),
+                    'url' => new moodle_url('/course/reset.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('coursebackup', 'theme_handlebar'),
-                    'url'=>new moodle_url('/backup/backup.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('coursebackup', 'theme_handlebar'),
+                    'url' => new moodle_url('/backup/backup.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('courserestore', 'theme_handlebar'),
-                    'url'=>new moodle_url('/backup/restorefile.php', array('contextid'=>$PAGE->context->id))
+                    'name' => get_string('courserestore', 'theme_handlebar'),
+                    'url' => new moodle_url('/backup/restorefile.php', array('contextid' => $PAGE->context->id))
                 ),
                 array(
-                    'name'=>get_string('courseimport', 'theme_handlebar'),
-                    'url'=>new moodle_url('/backup/import.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('courseimport', 'theme_handlebar'),
+                    'url' => new moodle_url('/backup/import.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('courseadmin', 'theme_handlebar'),
-                    'url'=>new moodle_url('/course/admin.php', array('courseid'=>$PAGE->course->id))
+                    'name' => get_string('courseadmin', 'theme_handlebar'),
+                    'url' => new moodle_url('/course/admin.php', array('courseid' => $PAGE->course->id))
                 ),
             );
 
-            $enrol = $DB->get_record('enrol', array('courseid'=>$COURSE->id, 'enrol'=>'manual'));
+            $enrol = $DB->get_record('enrol', array('courseid' => $COURSE->id, 'enrol' => 'manual'));
             $enrolinstance = $enrol->id;
 
             $usersgrouplinks = array(
                 array(
-                    'name'=>get_string('manageusers','theme_handlebar'),
-                    'url'=>new moodle_url('/enrol/users.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('manageusers', 'theme_handlebar'),
+                    'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('manualenrol','theme_handlebar'),
-                    'url'=>new moodle_url('/enrol/manual/manage.php', array('enrolid'=>$enrolinstance, 'id'=>$PAGE->course->id))
+                    'name' => get_string('manualenrol', 'theme_handlebar'),
+                    'url' => new moodle_url('/enrol/manual/manage.php',
+                        array('enrolid' => $enrolinstance, 'id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('usergroups','theme_handlebar'),
-                    'url'=>new moodle_url('/group/index.php', array('id' => $PAGE->course->id))
+                    'name' => get_string('usergroups', 'theme_handlebar'),
+                    'url' => new moodle_url('/group/index.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('enrolmentmethods','theme_handlebar'),
-                    'url'=>new moodle_url('/enrol/instances.php', array('id' => $PAGE->course->id))
+                    'name' => get_string('enrolmentmethods', 'theme_handlebar'),
+                    'url' => new moodle_url('/enrol/instances.php', array('id' => $PAGE->course->id))
                 ),
             );
             $reportsgrouplinks = array(
                 array(
-                    'name'=>get_string('usergrades','theme_handlebar'),
-                    'url'=>new moodle_url('/grade/report/grader/index.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('usergrades', 'theme_handlebar'),
+                    'url' => new moodle_url('/grade/report/grader/index.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('logs','theme_handlebar'),
-                    'url'=>new moodle_url('/report/log/index.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('logs', 'theme_handlebar'),
+                    'url' => new moodle_url('/report/log/index.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('livelogs','theme_handlebar'),
-                    'url'=>new moodle_url('/report/loglive/index.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('livelogs', 'theme_handlebar'),
+                    'url' => new moodle_url('/report/loglive/index.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('participation','theme_handlebar'),
-                    'url'=>new moodle_url('/report/participation/index.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('participation', 'theme_handlebar'),
+                    'url' => new moodle_url('/report/participation/index.php', array('id' => $PAGE->course->id))
                 ),
                 array(
-                    'name'=>get_string('logs','theme_handlebar'),
-                    'url'=>new moodle_url('/report/outline/index.php', array('id'=>$PAGE->course->id))
+                    'name' => get_string('logs', 'theme_handlebar'),
+                    'url' => new moodle_url('/report/outline/index.php', array('id' => $PAGE->course->id))
                 ),
             );
             $othergrouplinks = array(
                 array(
-                    'name'=>get_string('recyclebin','theme_handlebar'),
-                    'url'=>new moodle_url('/admin/tool/recyclebin/index.php', array('contextid'=>$PAGE->context->id))
+                    'name' => get_string('recyclebin', 'theme_handlebar'),
+                    'url' => new moodle_url('/admin/tool/recyclebin/index.php', array('contextid' => $PAGE->context->id))
                 ),
             );
 
             $staffmodalcontext = [
-                'hascoursegroup'=>$hascoursegroup,
-                'coursegrouplinks'=>$coursegrouplinks,
-                'hasusersgroup'=>$hasusersgroup,
-                'usersgrouplinks'=>$usersgrouplinks,
-                'hasreportsgroup'=>$hasreportsgroup,
-                'reportsgrouplinks'=>$reportsgrouplinks,
-                'hasothergroup'=>$hasothergroup,
-                'othergrouplinks'=>$othergrouplinks
+                'hascoursegroup' => $hascoursegroup,
+                'coursegrouplinks' => $coursegrouplinks,
+                'hasusersgroup' => $hasusersgroup,
+                'usersgrouplinks' => $usersgrouplinks,
+                'hasreportsgroup' => $hasreportsgroup,
+                'reportsgrouplinks' => $reportsgrouplinks,
+                'hasothergroup' => $hasothergroup,
+                'othergrouplinks' => $othergrouplinks
             ];
             return $this->render_from_template('theme_handlebar/staffmodal', $staffmodalcontext);
         } else {
@@ -392,10 +393,30 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function studentblocksmodal() {
-        $studentmodal = '';
-        $studentmodal .= '<p>What are the most needed functions and displays to add here?</p>';
-        $studentmodal .= '<p>Completion/Grade etc? Messages? Quizes and Assessments due?</p>';
-        return $studentmodal;
+        global $PAGE, $DB, $COURSE;
+        if (ISSET($COURSE->id) && $COURSE->id > 1) {
+
+            $hasstulinksgroup = array(
+                'title' => get_string('modalstudentlinks', 'theme_handlebar'),
+                'icon' => 'cogs'
+            );
+
+            $stulinksgroup = array(
+                array(
+                    'name' => get_string('modalstudentlinks', 'theme_handlebar'),
+                    'url' => "#"
+                ),
+            );
+
+            $studentmodalcontext = [
+                'hasstulinksgroup' => $hasstulinksgroup,
+                'stulinksgroup' => $stulinksgroup,
+            ];
+
+            return $this->render_from_template('theme_handlebar/studentmodal', $studentmodalcontext);
+        } else {
+            return '';
+        }
     }
 
 }

@@ -33,8 +33,14 @@
         'stulinksgroup' => array('name' => "link name", 'url' => "http://link/here")
     }
 }}
-
 <div class="modalcards">
+<div class="card modalcards_progress">
+    {{#progresschart}}
+        {{{progresschart}}}
+        <p>My Progress</p>
+    {{/progresschart}}
+    <a href="#" alt="my grades"><i class="fa fa-4x fa-bar-chart">&nbsp</i><br>My Grades</a>
+</div>
 {{#hasstulinksgroup}}
     <div class="card">
         <div class="card-header card-primary">

@@ -191,10 +191,14 @@ section#slider4_blocksmodal {
         align-items: stretch;
 
         .card {
-            order: 0;
+            order: 1;
             flex: 1 1 auto;
             align-self: auto;
             margin:0 5px;
         }
-
+}
+.modalcards_progress {
+    max-width:100px;
+    flex: 1 0 auto;
+    border:none;
 }

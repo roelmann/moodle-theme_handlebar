@@ -43,6 +43,7 @@ use paging_bar;
 use url_select;
 use context_course;
 use pix_icon;
+use progress;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -393,8 +394,23 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function studentblocksmodal() {
-        global $PAGE, $DB, $COURSE;
-        if (ISSET($COURSE->id) && $COURSE->id > 1) {
+        global $PAGE, $DB, $COURSE, $CFG;
+        require_once($CFG->dirroot.'/completion/classes/progress.php');
+
+        if (ISSET($PAGE->course->id) && $PAGE->course->id > 1) {
+            if (\core_completion\progress::get_course_progress_percentage($PAGE->course)) {
+                $comppercent = \core_completion\progress::get_course_progress_percentage($PAGE->course);
+                $hasprogress = true;
+            } else {
+                $comppercent = 0;
+                $hasprogress = false;
+            }
+            $progresschartcontext = [
+                'hasprogress'=>$hasprogress,
+                'progress'=>$comppercent
+            ];
+            $progresschart = $this->render_from_template('block_myoverview/progress-chart', $progresschartcontext);
+
 
             $hasstulinksgroup = array(
                 'title' => get_string('modalstudentlinks', 'theme_handlebar'),
@@ -409,6 +425,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             );
 
             $studentmodalcontext = [
+                'progresschart'=>$progresschart,
                 'hasstulinksgroup' => $hasstulinksgroup,
                 'stulinksgroup' => $stulinksgroup,
             ];

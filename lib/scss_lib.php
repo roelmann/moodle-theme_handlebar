@@ -138,6 +138,9 @@ function theme_handlebar_get_pre_scss($theme) {
         $prescss .= 'body#page-login-index {background-image: url([[pix:theme|background2]]); background-size:100% 100%;}';
     }
 
+    $crsimg = get_course_image();
+    $prescss .= $crsimg;
+
     return $prescss;
 }
 
@@ -157,7 +160,7 @@ function theme_handlebar_get_extra_scss($theme) {
     return $extrascss;
 }
 
-function get_course_image ()
+function get_course_image () {
     global $CFG, $COURSE, $PAGE, $DB;
     if (empty($CFG->courseoverviewfileslimit)) {
         return array();
@@ -165,16 +168,17 @@ function get_course_image ()
     require_once($CFG->libdir. '/filestorage/file_storage.php');
     require_once($CFG->dirroot. '/course/lib.php');
 
-    $courses = get_courses; // Proper code needed
+    $courses = get_courses();
+    $crsimagescss = '';
 
     foreach ($courses as $c) {
 
         // Get course overview files.
         $fs = get_file_storage();
-        $context = context_course::instance($COURSE->id);
+        $context = context_course::instance($c->id);
         $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'filename', false);
         if (count($files)) {
-            $overviewfilesoptions = course_overviewfiles_options($COURSE->id);
+            $overviewfilesoptions = course_overviewfiles_options($c->id);
             $acceptedtypes = $overviewfilesoptions['accepted_types'];
             if ($acceptedtypes !== '*') {
                 // Filter only files with allowed extensions.
@@ -203,16 +207,9 @@ function get_course_image ()
             }
         }
 
-        // Create html for header.
-        $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
-        $html .= html_writer::start_div('col-xs-12 p-a-1');
-        $html .= html_writer::start_div('card');
-
-        // If course image display it in separate div to allow css styling of inline style.
-        if ($courseimage) {
-            $html .= html_writer::start_div('withimage', array(
-                'style' => 'background-image: url("'.$courseimage.'");background-size: 100% 100%;'));
-        }
-
-
+        $crsid = '#course-events-container-' . $c->id . ', .courses-view-course-item #course-info-container-' . $c->id;
+        $crsimagescss .= $crsid . ' {background-image: url("' . $courseimage . '"); background-size: 100% 100%;}';
     }
+    return $crsimagescss;
+
+}

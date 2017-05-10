@@ -406,11 +406,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $hasprogress = false;
             }
             $progresschartcontext = [
-                'hasprogress'=>$hasprogress,
-                'progress'=>$comppercent
+                'hasprogress' => $hasprogress,
+                'progress' => $comppercent
             ];
             $progresschart = $this->render_from_template('block_myoverview/progress-chart', $progresschartcontext);
-
 
             $hasstulinksgroup = array(
                 'title' => get_string('modalstudentlinks', 'theme_handlebar'),
@@ -425,7 +424,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             );
 
             $studentmodalcontext = [
-                'progresschart'=>$progresschart,
+                'progresschart' => $progresschart,
                 'hasstulinksgroup' => $hasstulinksgroup,
                 'stulinksgroup' => $stulinksgroup,
             ];

@@ -157,3 +157,62 @@ function theme_handlebar_get_extra_scss($theme) {
     return $extrascss;
 }
 
+function get_course_image ()
+    global $CFG, $COURSE, $PAGE, $DB;
+    if (empty($CFG->courseoverviewfileslimit)) {
+        return array();
+    }
+    require_once($CFG->libdir. '/filestorage/file_storage.php');
+    require_once($CFG->dirroot. '/course/lib.php');
+
+    $courses = get_courses; // Proper code needed
+
+    foreach ($courses as $c) {
+
+        // Get course overview files.
+        $fs = get_file_storage();
+        $context = context_course::instance($COURSE->id);
+        $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'filename', false);
+        if (count($files)) {
+            $overviewfilesoptions = course_overviewfiles_options($COURSE->id);
+            $acceptedtypes = $overviewfilesoptions['accepted_types'];
+            if ($acceptedtypes !== '*') {
+                // Filter only files with allowed extensions.
+                require_once($CFG->libdir. '/filelib.php');
+                foreach ($files as $key => $file) {
+                    if (!file_extension_in_typegroup($file->get_filename(), $acceptedtypes)) {
+                        unset($files[$key]);
+                    }
+                }
+            }
+            if (count($files) > $CFG->courseoverviewfileslimit) {
+                // Return no more than $CFG->courseoverviewfileslimit files.
+                $files = array_slice($files, 0, $CFG->courseoverviewfileslimit, true);
+            }
+        }
+
+        // Get course overview files as images - set $courseimage.
+        // The loop means that the LAST stored image will be the one displayed if >1 image file.
+        $courseimage = '';
+        foreach ($files as $file) {
+            $isimage = $file->is_valid_image();
+            if ($isimage) {
+                $courseimage = file_encode_url("$CFG->wwwroot/pluginfile.php",
+                    '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            }
+        }
+
+        // Create html for header.
+        $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
+        $html .= html_writer::start_div('col-xs-12 p-a-1');
+        $html .= html_writer::start_div('card');
+
+        // If course image display it in separate div to allow css styling of inline style.
+        if ($courseimage) {
+            $html .= html_writer::start_div('withimage', array(
+                'style' => 'background-image: url("'.$courseimage.'");background-size: 100% 100%;'));
+        }
+
+
+    }

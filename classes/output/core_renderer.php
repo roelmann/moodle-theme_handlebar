@@ -260,8 +260,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
                     $subtitle = get_string('staffmodaldesc', 'theme_handlebar');
                     $blocksmodalusersection .= $OUTPUT->staffblocksmodal();
                 } else {
-                    $maintitle = 'MainStudentTitle';
-                    $subtitle = 'Student page sub title - make strings for these';
+                    $maintitle = get_string('studentmodal', 'theme_handlebar');
+                    $subtitle = get_string('studentmodaldesc', 'theme_handlebar');
                     $blocksmodalusersection .= $OUTPUT->studentblocksmodal();
                 }
             }

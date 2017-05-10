@@ -201,4 +201,9 @@ section#slider4_blocksmodal {
     max-width:100px;
     flex: 1 0 auto;
     border:none;
+    .progress-chart-container,
+    p, i {
+        margin:0 auto;
+        text-align: center;
+    }
 }

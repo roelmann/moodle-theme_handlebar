@@ -88,7 +88,7 @@ $THEME->layouts = [
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'columns2.php',
+        'file' => 'mydash.php',
         'regions' => array('side-pre', 'side-top', 'side-slidertwo', 'side-sliderthree', 'side-sliderfour'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true, 'langmenu' => true),

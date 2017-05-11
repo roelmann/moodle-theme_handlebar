@@ -108,11 +108,14 @@ header#page-header .card .withimage {
 
 /* BLOCKS MODAL.
  * ============= */
+.path-course .context-header-settings-menu {
+    display:none;
+}
 .blockmodalbuttons {
     float:right;
     width:50px;
     right:0;
-    top:30%;
+    top:40%;
     position:fixed;
 
     display: flex;
@@ -206,4 +209,17 @@ section#slider4_blocksmodal {
         margin:0 auto;
         text-align: center;
     }
+}
+
+/* MyOverview Course images.
+ * ------------------------- */
+.block_myoverview h4.h5 {
+    font-size:140%;
+    font-weight:700;
+}
+#myoverview_timeline_courses li.list-group-item {
+    padding:0;
+}
+#myoverview_timeline_courses div[data-region="course-events-container"] {
+    padding:15px;
 }

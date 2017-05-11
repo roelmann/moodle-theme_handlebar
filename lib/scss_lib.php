@@ -82,7 +82,7 @@ function theme_handlebar_get_main_scss_content($theme) {
  * @return array
  */
 function theme_handlebar_get_pre_scss($theme) {
-    global $CFG;
+    global $CFG, $OUTPUT;
 
     $prescss = '';
 
@@ -138,9 +138,6 @@ function theme_handlebar_get_pre_scss($theme) {
         $prescss .= 'body#page-login-index {background-image: url([[pix:theme|background2]]); background-size:100% 100%;}';
     }
 
-    $crsimg = get_course_image();
-    $prescss .= $crsimg;
-
     return $prescss;
 }
 
@@ -160,56 +157,3 @@ function theme_handlebar_get_extra_scss($theme) {
     return $extrascss;
 }
 
-function get_course_image () {
-    global $CFG, $COURSE, $PAGE, $DB;
-    if (empty($CFG->courseoverviewfileslimit)) {
-        return array();
-    }
-    require_once($CFG->libdir. '/filestorage/file_storage.php');
-    require_once($CFG->dirroot. '/course/lib.php');
-
-    $courses = get_courses();
-    $crsimagescss = '';
-
-    foreach ($courses as $c) {
-
-        // Get course overview files.
-        $fs = get_file_storage();
-        $context = context_course::instance($c->id);
-        $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'filename', false);
-        if (count($files)) {
-            $overviewfilesoptions = course_overviewfiles_options($c->id);
-            $acceptedtypes = $overviewfilesoptions['accepted_types'];
-            if ($acceptedtypes !== '*') {
-                // Filter only files with allowed extensions.
-                require_once($CFG->libdir. '/filelib.php');
-                foreach ($files as $key => $file) {
-                    if (!file_extension_in_typegroup($file->get_filename(), $acceptedtypes)) {
-                        unset($files[$key]);
-                    }
-                }
-            }
-            if (count($files) > $CFG->courseoverviewfileslimit) {
-                // Return no more than $CFG->courseoverviewfileslimit files.
-                $files = array_slice($files, 0, $CFG->courseoverviewfileslimit, true);
-            }
-        }
-
-        // Get course overview files as images - set $courseimage.
-        // The loop means that the LAST stored image will be the one displayed if >1 image file.
-        $courseimage = '';
-        foreach ($files as $file) {
-            $isimage = $file->is_valid_image();
-            if ($isimage) {
-                $courseimage = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                    '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
-            }
-        }
-
-        $crsid = '#course-events-container-' . $c->id . ', .courses-view-course-item #course-info-container-' . $c->id;
-        $crsimagescss .= $crsid . ' {background-image: url("' . $courseimage . '"); background-size: 100% 100%;}';
-    }
-    return $crsimagescss;
-
-}

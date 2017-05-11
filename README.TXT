@@ -28,5 +28,7 @@ Richard
 
 CHANGELOG
 ---------
+3.3.0.1         Add Turn Editing On button
+                Improve course images on myOverview
 3.3.0.0         Clone of Waxed
                 Added new TopBar custom block region

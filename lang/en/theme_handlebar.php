@@ -125,6 +125,27 @@ $string['contentsettings'] = 'Content areas';
 $string['footnote'] = 'Footnote.';
 $string['footnotedesc'] = 'Footnote content editor for main footer';
 
+// Links page settings.
+$string['linkspage'] = 'Links Popup pages';
+$string['linkspagesub'] = 'Custom links for staff and student pop up block pages';
+$string['linkspagedesc'] = 'You can add upto 6 custom links for staff and for students.';
+$string['stafflinks'] = 'Staff Links';
+$string['stafflinksdesc'] = 'Add any (upto 6) manager/admin provided links for the Staff popup page.';
+$string['studentlinks'] = 'Student Links';
+$string['studentlinksdesc'] = 'Add any (upto 6) manager/admin provided links for the Student popup page.';
+$string['stafflink'] = 'Staff link name';
+$string['stafflinkdesc'] = '';
+$string['stafflinkurl'] = 'Staff link url';
+$string['stafflinkurldesc'] = '';
+$string['stafflinkicon'] = 'Staff link FA icon name';
+$string['stafflinkicondesc'] = '';
+$string['studentlink'] = 'Student link name';
+$string['studentlinkdesc'] = '';
+$string['studentlinkurl'] = 'Student link url';
+$string['studentlinkurldesc'] = '';
+$string['studentlinkicon'] = 'Student link FA icon name';
+$string['studentlinkicondesc'] = '';
+
 // Modal sliders.
 $string['defaultmodaltitle'] = 'Side-Blocks page';
 $string['defaultmodaltitledesc'] = 'These side-block pages can be used to add blocks off the main course page, but still easily available. Staff and Students also have a dedicated course details tab.';
@@ -162,3 +183,5 @@ $string['otherlinks'] = 'Other links';
 $string['recyclebin'] = 'Recycle Bin';
 // Student modal page links.
 $string['modalstudentlinks'] = 'Course links';
+$string['courseinfo'] = 'Course information';
+$string['coursestaff'] = 'Course Staff';

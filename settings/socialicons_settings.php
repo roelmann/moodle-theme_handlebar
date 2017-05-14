@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Social networking settings page file.
+ * Links settings page file.
  *
  * @package    theme_handlebar
  * @copyright  2016 Richard Oelmann

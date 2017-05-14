@@ -296,33 +296,39 @@ class core_renderer extends \theme_boost\output\core_renderer {
             );
             $hasothergroup = array(
                 'title' => get_string('modalstaffotherlinks', 'theme_handlebar'),
-                'icon' => 'random'
+                'icon' => 'external-link'
             );
 
             $coursegrouplinks = array(
                 array(
                     'name' => get_string('editcourse', 'theme_handlebar'),
-                    'url' => new moodle_url('/course/edit.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/course/edit.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'edit'
                 ),
                 array(
                     'name' => get_string('resetcourse', 'theme_handlebar'),
-                    'url' => new moodle_url('/course/reset.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/course/reset.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'reply'
                 ),
                 array(
                     'name' => get_string('coursebackup', 'theme_handlebar'),
-                    'url' => new moodle_url('/backup/backup.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/backup/backup.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'copy'
                 ),
                 array(
                     'name' => get_string('courserestore', 'theme_handlebar'),
-                    'url' => new moodle_url('/backup/restorefile.php', array('contextid' => $PAGE->context->id))
+                    'url' => new moodle_url('/backup/restorefile.php', array('contextid' => $PAGE->context->id)),
+                    'icon' => 'clipboard'
                 ),
                 array(
                     'name' => get_string('courseimport', 'theme_handlebar'),
-                    'url' => new moodle_url('/backup/import.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/backup/import.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'clipboard'
                 ),
                 array(
                     'name' => get_string('courseadmin', 'theme_handlebar'),
-                    'url' => new moodle_url('/course/admin.php', array('courseid' => $PAGE->course->id))
+                    'url' => new moodle_url('/course/admin.php', array('courseid' => $PAGE->course->id)),
+                    'icon' => 'dashboard'
                 ),
             );
 
@@ -332,50 +338,71 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $usersgrouplinks = array(
                 array(
                     'name' => get_string('manageusers', 'theme_handlebar'),
-                    'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'address-book-o'
                 ),
                 array(
                     'name' => get_string('manualenrol', 'theme_handlebar'),
                     'url' => new moodle_url('/enrol/manual/manage.php',
-                        array('enrolid' => $enrolinstance, 'id' => $PAGE->course->id))
+                        array('enrolid' => $enrolinstance, 'id' => $PAGE->course->id)),
+                    'icon' => 'user-plus'
                 ),
                 array(
                     'name' => get_string('usergroups', 'theme_handlebar'),
-                    'url' => new moodle_url('/group/index.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/group/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'group'
                 ),
                 array(
                     'name' => get_string('enrolmentmethods', 'theme_handlebar'),
-                    'url' => new moodle_url('/enrol/instances.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/enrol/instances.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'address-card-o'
                 ),
             );
             $reportsgrouplinks = array(
                 array(
                     'name' => get_string('usergrades', 'theme_handlebar'),
-                    'url' => new moodle_url('/grade/report/grader/index.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/grade/report/grader/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'bar-chart'
                 ),
                 array(
                     'name' => get_string('logs', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/log/index.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/report/log/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'server'
                 ),
                 array(
                     'name' => get_string('livelogs', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/loglive/index.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/report/loglive/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'tasks'
                 ),
                 array(
                     'name' => get_string('participation', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/participation/index.php', array('id' => $PAGE->course->id))
+                    'url' => new moodle_url('/report/participation/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'street-view'
                 ),
                 array(
-                    'name' => get_string('logs', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/outline/index.php', array('id' => $PAGE->course->id))
+                    'name' => get_string('activity', 'theme_handlebar'),
+                    'url' => new moodle_url('/report/outline/index.php', array('id' => $PAGE->course->id)),
+                    'icon' => 'user-circle-o'
                 ),
             );
+
             $othergrouplinks = array(
                 array(
                     'name' => get_string('recyclebin', 'theme_handlebar'),
-                    'url' => new moodle_url('/admin/tool/recyclebin/index.php', array('contextid' => $PAGE->context->id))
+                    'url' => new moodle_url('/admin/tool/recyclebin/index.php', array('contextid' => $PAGE->context->id)),
+                    'icon' => 'trash-o'
                 ),
             );
+            for ($i = 1; $i <= 6; $i++) {
+                if (strlen(theme_handlebar_get_setting('stafflink' . $i . 'name')) > 0) {
+                    $othergrouplinks[] =
+                        array(
+                            'name' => theme_handlebar_get_setting('stafflink' . $i . 'name'),
+                            'url' => theme_handlebar_get_setting('stafflink' . $i . 'url'),
+                            'icon' => theme_handlebar_get_setting('stafflink' . $i . 'icon')
+                        );
+                }
+            }
 
             $staffmodalcontext = [
                 'hascoursegroup' => $hascoursegroup,
@@ -394,7 +421,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function studentblocksmodal() {
-        global $PAGE, $DB, $COURSE, $CFG;
+        global $PAGE, $DB, $COURSE, $CFG, $OUTPUT;
         require_once($CFG->dirroot.'/completion/classes/progress.php');
 
         if (ISSET($PAGE->course->id) && $PAGE->course->id > 1) {
@@ -410,23 +437,81 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'progress' => $comppercent
             ];
             $progresschart = $this->render_from_template('block_myoverview/progress-chart', $progresschartcontext);
+            $gradeslink = new moodle_url('/grade/report/user/index.php', array('id' => $PAGE->course->id));
 
-            $hasstulinksgroup = array(
-                'title' => get_string('modalstudentlinks', 'theme_handlebar'),
-                'icon' => 'cogs'
+            $stulinksgroup = array();
+            for ($i = 1; $i <= 6; $i++) {
+                if (strlen(theme_handlebar_get_setting('studentlink' . $i . 'name')) > 0) {
+                    $stulinksgroup[] =
+                        array(
+                            'name' => theme_handlebar_get_setting('studentlink' . $i . 'name'),
+                            'url' => theme_handlebar_get_setting('studentlink' . $i . 'url'),
+                            'icon' => theme_handlebar_get_setting('studentlink' . $i . 'icon')
+                        );
+                }
+            }
+            if (count($stulinksgroup) > 0 ) {
+                $hasstulinksgroup = array(
+                    'title' => get_string('modalstudentlinks', 'theme_handlebar'),
+                    'icon' => 'link'
+                );
+            } else {
+                $hasstulinksgroup = false;
+            }
+
+            $hascourseinfogroup = array (
+                'title' => get_string('courseinfo', 'theme_handlebar'),
+                'icon' => 'map'
             );
-
-            $stulinksgroup = array(
+            $coursedescription = 'Get course description from course settings';
+            $courseinfo = array (
                 array(
-                    'name' => get_string('modalstudentlinks', 'theme_handlebar'),
-                    'url' => "#"
-                ),
+                    'content' => $coursedescription,
+                )
             );
+            $hascoursestaff = array (
+                'title' => get_string('coursestaff', 'theme_handlebar'),
+                'icon' => 'users'
+            );
+
+            $coursestaff = array();
+            $courseother = array();
+            $role = $DB->get_record('role', array('shortname' => 'editingteacher'));
+            $context = context_course::instance($PAGE->course->id);
+            $teachers = get_role_users($role->id, $context, false, 'u.id, u.firstname, u.middlename, u.lastname, u.alternatename, u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture, u.imagealt, u.description');
+            foreach ($teachers as $staff) {
+                $picture = $OUTPUT->user_picture($staff, array('size'=>75));
+                $courseteachers = array (
+                    'name' => $staff->firstname . ' ' . $staff->lastname . ' ' . $staff->alternatename,
+                    'email' => $staff->email,
+                    'phone' => $staff->phone1,
+                    'picture' => $picture,
+                    'description' => $staff->description
+                );
+            }
+            $role = $DB->get_record('role', array('shortname' => 'teacher'));
+            $context = context_course::instance($PAGE->course->id);
+            $teachers = get_role_users($role->id, $context, false, 'u.id, u.firstname, u.middlename, u.lastname, u.alternatename, u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture, u.imagealt, u.description');
+            foreach ($teachers as $staff) {
+                $picture = $OUTPUT->user_picture($staff, array('size'=>75));
+                $courseother = array (
+                    'name' => $staff->firstname . ' ' . $staff->lastname,
+                    'email' => $staff->email,
+                    'phone' => $staff->phone1,
+                    'picture' => $picture
+                );
+            }
 
             $studentmodalcontext = [
                 'progresschart' => $progresschart,
+                'gradeslink' => $gradeslink,
                 'hasstulinksgroup' => $hasstulinksgroup,
                 'stulinksgroup' => $stulinksgroup,
+                'hascourseinfogroup' => $hascourseinfogroup,
+                'courseinfo' => $courseinfo,
+                'hascoursestaffgroup' => $hascoursestaff,
+                'courseteachers' => $courseteachers,
+                'courseother' => $courseother,
             ];
 
             return $this->render_from_template('theme_handlebar/studentmodal', $studentmodalcontext);
@@ -435,7 +520,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
     }
 
-     public function edit_button(moodle_url $url) {
+    public function edit_button(moodle_url $url) {
         global $SITE, $PAGE, $USER, $CFG, $COURSE;
         $url->param('sesskey', sesskey());
         if ($this->page->user_is_editing()) {
@@ -456,57 +541,59 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
 
     public function get_course_image () {
-    global $CFG, $COURSE, $PAGE, $DB;
-    if (empty($CFG->courseoverviewfileslimit)) {
-        return array();
-    }
-    require_once($CFG->libdir. '/filestorage/file_storage.php');
-    require_once($CFG->dirroot. '/course/lib.php');
+        global $CFG, $COURSE, $PAGE, $DB;
+        if (empty($CFG->courseoverviewfileslimit)) {
+            return array();
+        }
+        require_once($CFG->libdir. '/filestorage/file_storage.php');
+        require_once($CFG->dirroot. '/course/lib.php');
 
-    $courses = get_courses();
-    $crsimagescss = '';
+        $courses = get_courses();
+        $crsimagescss = '';
 
-    foreach ($courses as $c) {
+        foreach ($courses as $c) {
 
-        // Get course overview files.
-        $fs = get_file_storage();
-        $context = context_course::instance($c->id);
-        $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'filename', false);
-        if (count($files)) {
-            $overviewfilesoptions = course_overviewfiles_options($c->id);
-            $acceptedtypes = $overviewfilesoptions['accepted_types'];
-            if ($acceptedtypes !== '*') {
-                // Filter only files with allowed extensions.
-                require_once($CFG->libdir. '/filelib.php');
-                foreach ($files as $key => $file) {
-                    if (!file_extension_in_typegroup($file->get_filename(), $acceptedtypes)) {
-                        unset($files[$key]);
+            // Get course overview files.
+            $fs = get_file_storage();
+            $context = context_course::instance($c->id);
+            $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'filename', false);
+            if (count($files)) {
+                $overviewfilesoptions = course_overviewfiles_options($c->id);
+                $acceptedtypes = $overviewfilesoptions['accepted_types'];
+                if ($acceptedtypes !== '*') {
+                    // Filter only files with allowed extensions.
+                    require_once($CFG->libdir. '/filelib.php');
+                    foreach ($files as $key => $file) {
+                        if (!file_extension_in_typegroup($file->get_filename(), $acceptedtypes)) {
+                            unset($files[$key]);
+                        }
                     }
                 }
+                if (count($files) > $CFG->courseoverviewfileslimit) {
+                    // Return no more than $CFG->courseoverviewfileslimit files.
+                    $files = array_slice($files, 0, $CFG->courseoverviewfileslimit, true);
+                }
             }
-            if (count($files) > $CFG->courseoverviewfileslimit) {
-                // Return no more than $CFG->courseoverviewfileslimit files.
-                $files = array_slice($files, 0, $CFG->courseoverviewfileslimit, true);
-            }
-        }
 
-        // Get course overview files as images - set $courseimage.
-        // The loop means that the LAST stored image will be the one displayed if >1 image file.
-        $courseimage = '';
-        foreach ($files as $file) {
-            $isimage = $file->is_valid_image();
-            if ($isimage) {
-                $courseimage = file_encode_url("$CFG->wwwroot/pluginfile.php",
+            // Get course overview files as images - set $courseimage.
+            // The loop means that the LAST stored image will be the one displayed if >1 image file.
+            $courseimage = '';
+            foreach ($files as $file) {
+                $isimage = $file->is_valid_image();
+                if ($isimage) {
+                    $courseimage = file_encode_url("$CFG->wwwroot/pluginfile.php",
                     '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                        $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                }
             }
+
+            $crsid = '#course-events-container-' . $c->id . ', .courses-view-course-item #course-info-container-' . $c->id;
+            $crsimagescss .= $crsid . ' {background-image: url("' . $courseimage . '");
+                background-size: 100% 100%; background-color:red;}';
         }
 
-        $crsid = '#course-events-container-' . $c->id . ', .courses-view-course-item #course-info-container-' . $c->id;
-        $crsimagescss .= $crsid . ' {background-image: url("' . $courseimage . '"); background-size: 100% 100%; background-color:red;}';
-    }
-    return $crsimagescss;
+        return $crsimagescss;
 
-}
+    }
 
 }

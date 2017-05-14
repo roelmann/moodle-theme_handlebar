@@ -39,8 +39,61 @@
         {{{progresschart}}}
         <p>My Progress</p>
     {{/progresschart}}
-    <a href="#" alt="my grades"><p><br/><i class="fa fa-4x fa-bar-chart"></i></a></p><p>My Grades</p>
+    <a href="{{{gradeslink}}}" alt="my grades"><p><br/><i class="fa fa-4x fa-bar-chart"></i></a></p><p>My Grades</p>
 </div>
+{{#hascourseinfogroup}}
+    <div class="card">
+        <div class="card-header card-primary">
+            <h3 class="card-title">
+                <i class="fa fa-{{{icon}}}">&nbsp</i>{{{title}}}
+            </h3>
+        </div>
+        <div class="card-block">
+            {{#courseinfo}}
+                {{{content}}}
+            {{/courseinfo}}
+        </div>
+    </div>
+{{/hascourseinfogroup}}
+
+{{#hascoursestaffgroup}}
+    <div class="card">
+        <div class="card-header card-primary">
+            <h3 class="card-title">
+                <i class="fa fa-{{{icon}}}">&nbsp</i>{{{title}}}
+            </h3>
+        </div>
+        <div class="card-block">
+            {{#courseteachers}}
+                <h3>Course Leader</h3>
+                <div class="staffmember">
+                    {{{picture}}}
+                    <div class="staffinfo">
+                        <h4>{{{name}}}</h4>
+                        <p>{{{description}}}</p>
+                        <p><a href="mailto:{{{email}}}"><i class="fa fa-envelope-o">&nbsp</i>{{{email}}}</a></p>
+                        <p><i class="fa fa-phone">&nbsp</i>{{{phone}}}</p>
+                    </div>
+                </div>
+            {{/courseteachers}}
+            {{#courseother}}
+                <p><br></p>
+                <h3>Course Staff</h3>
+                <div class="staffmember">
+                    {{{picture}}}
+                    <div class="staffinfo">
+                        <h4>{{{name}}}</h4>
+                        <p>{{{description}}}</p>
+                        <p><a href="mailto:{{{email}}}"><i class="fa fa-envelope-o">&nbsp</i>{{{email}}}</a></p>
+                        <p><i class="fa fa-phone">&nbsp</i>{{{phone}}}</p>
+                    </div>
+                </div>
+            {{/courseother}}
+
+        </div>
+    </div>
+{{/hascoursestaffgroup}}
+
 {{#hasstulinksgroup}}
     <div class="card">
         <div class="card-header card-primary">
@@ -52,7 +105,7 @@
             <ul class="list-group">
                 {{#stulinksgroup}}
                     <li class="list-group-item">
-                        <a href="{{{url}}}" alt="{{{name}}}">{{{name}}}</a>
+                        <a href="{{{url}}}" alt="{{{name}}}"><i class = "fa fa-{{{icon}}}">&nbsp</i>{{{name}}}</a>
                     </li>
                 {{/stulinksgroup}}
             </ul>

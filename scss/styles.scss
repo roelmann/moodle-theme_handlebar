@@ -199,6 +199,17 @@ section#slider4_blocksmodal {
             align-self: auto;
             margin:0 5px;
         }
+        .staffmember {
+            img {
+                float:left;
+            }
+            .staffinfo {
+                margin-left: 85px;
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
 }
 .modalcards_progress {
     max-width:100px;
@@ -210,6 +221,7 @@ section#slider4_blocksmodal {
         text-align: center;
     }
 }
+
 
 /* MyOverview Course images.
  * ------------------------- */

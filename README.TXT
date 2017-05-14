@@ -28,6 +28,10 @@ Richard
 
 CHANGELOG
 ---------
+3.3.1.0         STABLE RELEASE
+                Settings added to create student and staff links on pop up pages
+                Staff pop up page to replace course editing cog on main course page
+                Student pop up page to give course info - course summary/staff
 3.3.0.1         Add Turn Editing On button
                 Improve course images on myOverview
 3.3.0.0         Clone of Waxed

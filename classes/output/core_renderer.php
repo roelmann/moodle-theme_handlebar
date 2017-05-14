@@ -273,8 +273,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return renderer context for displaying blocks modal popup.
      */
     public function blocksmodal($region) {
-        global $CFG, $USER, $OUTPUT, $PAGE, $COURSE;
-        $blockmodalhtml = '';
+        global $OUTPUT, $COURSE;
         $blocksmodalusersection = '';
         $maintitle = get_string('defaultmodaltitle', 'theme_handlebar');
         $subtitle = get_string('defaultmodaltitledesc', 'theme_handlebar');
@@ -462,7 +461,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return renderer context for displaying student user content.
      */
     public function studentblocksmodal() {
-        global $PAGE, $DB, $COURSE, $CFG, $OUTPUT;
+        global $PAGE, $DB, $CFG, $OUTPUT;
         require_once($CFG->dirroot.'/completion/classes/progress.php');
 
         if (ISSET($PAGE->course->id) && $PAGE->course->id > 1) {
@@ -514,7 +513,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'icon' => 'users'
             );
 
-            $coursestaff = array();
+            $courseteachers = array();
             $courseother = array();
             $role = $DB->get_record('role', array('shortname' => 'editingteacher'));
             $context = context_course::instance($PAGE->course->id);
@@ -575,7 +574,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return $output.
      */
     public function edit_button(moodle_url $url) {
-        global $SITE, $PAGE, $USER, $CFG, $COURSE;
         $url->param('sesskey', sesskey());
         if ($this->page->user_is_editing()) {
             $url->param('edit', 'off');
@@ -590,7 +588,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
         return html_writer::tag('a', html_writer::start_tag('i', array('class' => $icon . ' fa fa-fw')) .
             html_writer::end_tag('i') . $title, array('href' => $url, 'class' => 'btn  ' . $btn, 'title' => $title));
-        return $output;
     }
 
     /**
@@ -601,7 +598,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return image.
      */
     public function get_course_image () {
-        global $CFG, $COURSE, $PAGE, $DB;
+        global $CFG;
         if (empty($CFG->courseoverviewfileslimit)) {
             return array();
         }

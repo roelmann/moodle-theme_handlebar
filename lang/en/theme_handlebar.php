@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 // Theme strings.
 $string['choosereadme'] = 'Handlebar is a modern highly-customisable theme. It is built on to the new Moodle Boost theme, using Bootstrap4 and Mustache templates.';
 $string['configtitle'] = 'Handlebar';
-$string['pluginname'] = 'handlebar';
+$string['pluginname'] = 'Handlebar';
 $string['region-side-pre'] = 'Right';
 $string['region-side-top'] = 'TopBar';
 $string['region-side-sliderone'] = 'Course management';

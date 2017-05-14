@@ -395,8 +395,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             );
             for ($i = 1; $i <= 6; $i++) {
                 if (strlen(theme_handlebar_get_setting('stafflink' . $i . 'name')) > 0) {
-                    $othergrouplinks[] =
-                        array(
+                    $othergrouplinks[] = array(
                             'name' => theme_handlebar_get_setting('stafflink' . $i . 'name'),
                             'url' => theme_handlebar_get_setting('stafflink' . $i . 'url'),
                             'icon' => theme_handlebar_get_setting('stafflink' . $i . 'icon')
@@ -442,8 +441,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $stulinksgroup = array();
             for ($i = 1; $i <= 6; $i++) {
                 if (strlen(theme_handlebar_get_setting('studentlink' . $i . 'name')) > 0) {
-                    $stulinksgroup[] =
-                        array(
+                    $stulinksgroup[] = array(
                             'name' => theme_handlebar_get_setting('studentlink' . $i . 'name'),
                             'url' => theme_handlebar_get_setting('studentlink' . $i . 'url'),
                             'icon' => theme_handlebar_get_setting('studentlink' . $i . 'icon')
@@ -478,9 +476,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $courseother = array();
             $role = $DB->get_record('role', array('shortname' => 'editingteacher'));
             $context = context_course::instance($PAGE->course->id);
-            $teachers = get_role_users($role->id, $context, false, 'u.id, u.firstname, u.middlename, u.lastname, u.alternatename, u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture, u.imagealt, u.description');
+            $teachers = get_role_users($role->id, $context, false,
+                'u.id, u.firstname, u.middlename, u.lastname, u.alternatename,
+                u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture,
+                u.imagealt, u.description');
             foreach ($teachers as $staff) {
-                $picture = $OUTPUT->user_picture($staff, array('size'=>75));
+                $picture = $OUTPUT->user_picture($staff, array('size' => 75));
                 $courseteachers = array (
                     'name' => $staff->firstname . ' ' . $staff->lastname . ' ' . $staff->alternatename,
                     'email' => $staff->email,
@@ -491,9 +492,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
             $role = $DB->get_record('role', array('shortname' => 'teacher'));
             $context = context_course::instance($PAGE->course->id);
-            $teachers = get_role_users($role->id, $context, false, 'u.id, u.firstname, u.middlename, u.lastname, u.alternatename, u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture, u.imagealt, u.description');
+            $teachers = get_role_users($role->id, $context, false,
+                'u.id, u.firstname, u.middlename, u.lastname, u.alternatename,
+                u.firstnamephonetic, u.lastnamephonetic, u.email, u.phone1, u.picture,
+                u.imagealt, u.description');
             foreach ($teachers as $staff) {
-                $picture = $OUTPUT->user_picture($staff, array('size'=>75));
+                $picture = $OUTPUT->user_picture($staff, array('size' => 75));
                 $courseother = array (
                     'name' => $staff->firstname . ' ' . $staff->lastname,
                     'email' => $staff->email,

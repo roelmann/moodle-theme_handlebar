@@ -70,7 +70,7 @@ $setting = new admin_setting_heading($name, $heading, $information);
 $page->add($setting);
 for ($i = 1; $i <= 6; $i++) {
 
-    // student Link - Name.
+    // Student Link - Name.
     $name = 'theme_handlebar/studentlink' . $i . 'name';
     $title = get_string('studentlink', 'theme_handlebar');
     $description = get_string('studentlinkdesc', 'theme_handlebar');
@@ -79,7 +79,7 @@ for ($i = 1; $i <= 6; $i++) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // student Link - URL.
+    // Student Link - URL.
     $name = 'theme_handlebar/studentlink' . $i . 'url';
     $title = get_string('studentlinkurl', 'theme_handlebar');
     $description = get_string('studentlinkurldesc', 'theme_handlebar');
@@ -87,7 +87,7 @@ for ($i = 1; $i <= 6; $i++) {
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $page->add($setting);
 
-    // student Link - icon.
+    // Student Link - icon.
     $name = 'theme_handlebar/studentlink' . $i . 'icon';
     $title = get_string('studentlinkicon', 'theme_handlebar');
     $description = get_string('studentlinkicondesc', 'theme_handlebar');

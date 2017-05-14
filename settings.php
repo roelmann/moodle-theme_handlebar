@@ -18,8 +18,7 @@
  * Main settings file.
  *
  * @package    theme_handlebar
- * @copyright  2016 Richard Oelmann
- * @credits    theme_boost - MoodleHQ
+ * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

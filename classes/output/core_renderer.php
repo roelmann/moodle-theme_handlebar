@@ -54,11 +54,13 @@ defined('MOODLE_INTERNAL') || die;
  * @copyright  2012 Bas Brands, www.basbrands.nl
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class core_renderer extends \theme_boost\output\core_renderer {
+
     /**
      * Wrapper for header elements.
      * Rewritten for Handlebar to incorporate header images from Course Summary Files.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
      *
      * @return string HTML to display the main header.
      */
@@ -143,9 +145,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $html;
     }
 
-
-    /* Handlebar specific additions to core_renderer.
-     * ------------------------------------------ */
+    /**
+     * Context for social icons mustache template.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return renderer context for displaying social icons.
+     */
     public function social_icons() {
         global $PAGE;
 
@@ -202,6 +208,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     }
 
+    /**
+     * Get setting for footnote content.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return html string to display footnote.
+     */
     public function footnote() {
         global $PAGE;
         $footnote = '';
@@ -211,6 +224,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $footnote;
     }
 
+    /**
+     * Context for block modal popup buttons.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return renderer context for displaying modal popup buttons.
+     */
     public function blockmodalbuttons() {
         global $OUTPUT, $PAGE;
         $blocksslider2html = $OUTPUT->blocksmodal('side-slidertwo');
@@ -244,6 +264,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $buttonshtml;
     }
 
+    /**
+     * Context for blocks modal pop mustache template.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @param string $region The region to get HTML for.
+     * @return renderer context for displaying blocks modal popup.
+     */
     public function blocksmodal($region) {
         global $CFG, $USER, $OUTPUT, $PAGE, $COURSE;
         $blockmodalhtml = '';
@@ -279,6 +307,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     }
 
+    /**
+     * Context for staff user content on blocks modal popup mustache template.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return renderer context for staff user content.
+     */
     public function staffblocksmodal() {
         global $PAGE, $DB, $COURSE;
         if (ISSET($COURSE->id) && $COURSE->id > 1) {
@@ -419,6 +454,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
     }
 
+    /**
+     * Context for student user content on blocks modal popup mustache template.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return renderer context for displaying student user content.
+     */
     public function studentblocksmodal() {
         global $PAGE, $DB, $COURSE, $CFG, $OUTPUT;
         require_once($CFG->dirroot.'/completion/classes/progress.php');
@@ -524,6 +566,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
     }
 
+    /**
+     * Render Editing link as a bootstrap style button with fontawesome icon.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @param moodle_url $url
+     * @return $output.
+     */
     public function edit_button(moodle_url $url) {
         global $SITE, $PAGE, $USER, $CFG, $COURSE;
         $url->param('sesskey', sesskey());
@@ -543,7 +593,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $output;
     }
 
-
+    /**
+     * Function to find course image for use in header and in course overview.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @package    theme_handlebar
+     *
+     * @return image.
+     */
     public function get_course_image () {
         global $CFG, $COURSE, $PAGE, $DB;
         if (empty($CFG->courseoverviewfileslimit)) {

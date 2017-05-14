@@ -23,6 +23,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 /**
  * Serves any files associated with the theme settings.
  *
@@ -35,9 +37,6 @@
  * @param array $options
  * @return bool
  */
-
-defined('MOODLE_INTERNAL') || die();
-
 function theme_handlebar_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     static $theme;
     if (empty($theme)) {
@@ -58,20 +57,16 @@ function theme_handlebar_pluginfile($course, $cm, $context, $filearea, $args, $f
     }
 }
 
-/**
- * This function creates the dynamic HTML needed for some
- * settings and then passes it back in an object so it can
- * be echo'd to the page.
- *
- * This keeps the logic out of the layout files.
- *
- * @param string $setting bring the required setting into the function
- * @param bool $format
- * @param string $setting
- * @param array $theme
- * @param stdclass $CFG
- * @return string
- */
+    /**
+     * Finds the given setting in the theme from the themes' configuration object.
+     * @copyright 2017 theme_handlebar Richard Oelmann https://moodle.org/user/profile.php?id=480148
+     * @copyright 2015 Gareth J Barnard - adapted from theme_essential
+     * @package    theme_handlebar
+     *
+     * @param string $setting Setting name.
+     * @param string $format false|'format_text'|'format_html'.
+     * @return any false|value of setting.
+     */
 function theme_handlebar_get_setting($setting, $format = false) {
     global $CFG;
     require_once($CFG->dirroot . '/lib/weblib.php');

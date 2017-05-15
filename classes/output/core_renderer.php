@@ -502,7 +502,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'title' => get_string('courseinfo', 'theme_handlebar'),
                 'icon' => 'map'
             );
-            $coursedescription = 'Get course description from course settings';
+            $coursedescription = $COURSE->summary;
             $courseinfo = array (
                 array(
                     'content' => $coursedescription,
@@ -523,7 +523,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 u.imagealt, u.description');
             foreach ($teachers as $staff) {
                 $picture = $OUTPUT->user_picture($staff, array('size' => 75));
-                $courseteachers = array (
+                $courseteachers[] = array (
                     'name' => $staff->firstname . ' ' . $staff->lastname . ' ' . $staff->alternatename,
                     'email' => $staff->email,
                     'phone' => $staff->phone1,
@@ -539,7 +539,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 u.imagealt, u.description');
             foreach ($teachers as $staff) {
                 $picture = $OUTPUT->user_picture($staff, array('size' => 75));
-                $courseother = array (
+                $courseother[] = array (
                     'name' => $staff->firstname . ' ' . $staff->lastname,
                     'email' => $staff->email,
                     'phone' => $staff->phone1,

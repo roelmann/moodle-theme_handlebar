@@ -466,7 +466,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         if (ISSET($PAGE->course->id) && $PAGE->course->id > 1) {
             if (\core_completion\progress::get_course_progress_percentage($PAGE->course)) {
-                $comppercent = \core_completion\progress::get_course_progress_percentage($PAGE->course);
+                $comppc = \core_completion\progress::get_course_progress_percentage($PAGE->course);
+                $comppercent = number_format($comppc, 0);
                 $hasprogress = true;
             } else {
                 $comppercent = 0;

@@ -461,7 +461,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return renderer context for displaying student user content.
      */
     public function studentblocksmodal() {
-        global $PAGE, $DB, $CFG, $OUTPUT;
+        global $PAGE, $DB, $CFG, $OUTPUT, $COURSE;
         require_once($CFG->dirroot.'/completion/classes/progress.php');
 
         if (ISSET($PAGE->course->id) && $PAGE->course->id > 1) {

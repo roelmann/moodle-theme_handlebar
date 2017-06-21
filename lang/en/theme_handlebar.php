@@ -48,6 +48,10 @@ $string['presetfiles_desc'] = 'Preset files can be used to dramatically alter th
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
 
+// Editing button.
+$string['editon'] = 'Turn Edit On';
+$string['editoff'] = 'Turn Edit Off';
+
 // Colours Settings.
 $string['colours_settings'] = 'Colours';
 $string['brandcolor'] = 'Brand Color';

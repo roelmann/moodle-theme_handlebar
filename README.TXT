@@ -28,6 +28,8 @@ Richard
 
 CHANGELOG
 ---------
+3.3.1.1         Bug fixes - progress radial
+                Rationalise moodle.scss
 3.3.1.0         STABLE RELEASE
                 Settings added to create student and staff links on pop up pages
                 Staff pop up page to replace course editing cog on main course page

@@ -245,7 +245,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $buttonshtml .= '<div class="blockmodalbuttons">';
         if ($PAGE->pagelayout == 'course') {
             $buttonshtml .= '<button type="button" class="btn btn-warning pageblockbtn" data-toggle="modal"';
-            $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></i></button>';
+            $buttonshtml .= 'data-target="#slider1_blocksmodal"><i class="fa fa-2x fa-cog"></i></button>';
         }
         if ($hasslidertwoblocks) {
             $buttonshtml .= '<button type="button" class="btn btn-danger pageblockbtn" data-toggle="modal"';
@@ -253,11 +253,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
         if ($hassliderthreeblocks) {
             $buttonshtml .= '<button type="button" class="btn btn-info pageblockbtn" data-toggle="modal"';
-            $buttonshtml .= 'data-target="#slider3_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+            $buttonshtml .= 'data-target="#slider3_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></button>';
         }
         if ($hassliderfourblocks) {
             $buttonshtml .= '<button type="button" class="btn btn-success pageblockbtn" data-toggle="modal"';
-            $buttonshtml .= 'data-target="#slider4_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></i></button>';
+            $buttonshtml .= 'data-target="#slider4_blocksmodal"><i class="fa fa-2x fa-arrow-circle-left"></i></button>';
         }
         $buttonshtml .= '</div>';
 
@@ -579,12 +579,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if ($this->page->user_is_editing()) {
             $url->param('edit', 'off');
             $btn = 'btn-danger';
-            $title = get_string('editoff' , 'theme_fordson');
+            $title = get_string('editoff' , 'theme_handlebar');
             $icon = 'fa-power-off';
         } else {
             $url->param('edit', 'on');
             $btn = 'btn-success';
-            $title = get_string('editon' , 'theme_fordson');
+            $title = get_string('editon' , 'theme_handlebar');
             $icon = 'fa-edit';
         }
         return html_writer::tag('a', html_writer::start_tag('i', array('class' => $icon . ' fa fa-fw')) .

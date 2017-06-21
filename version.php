@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017051401;
-$plugin->release  = 'v3.3.1.0';
+$plugin->version   = 2017051402;
+$plugin->release  = 'v3.3.1.1';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2017042800;
 $plugin->component = 'theme_handlebar';

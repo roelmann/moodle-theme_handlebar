@@ -39,6 +39,10 @@ $string['region-side-sliderfour'] = 'Block-Slider4';
 $string['generalsettings'] = 'General settings';
 $string['advancedsettings'] = 'Advanced settings';
 
+// Edit buttons.
+$string['editon'] = 'Turn Edit On';
+$string['editoff'] = 'Turn Edit Off';
+
 // Presets Settings.
 $string['presets_settings'] = 'Presets';
 $string['currentinparentheses'] = '(current)';

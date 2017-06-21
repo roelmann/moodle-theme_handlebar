@@ -579,12 +579,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if ($this->page->user_is_editing()) {
             $url->param('edit', 'off');
             $btn = 'btn-danger';
-            $title = get_string('editoff' , 'theme_fordson');
+            $title = get_string('editoff' , 'theme_handlebar');
             $icon = 'fa-power-off';
         } else {
             $url->param('edit', 'on');
             $btn = 'btn-success';
-            $title = get_string('editon' , 'theme_fordson');
+            $title = get_string('editon' , 'theme_handlebar');
             $icon = 'fa-edit';
         }
         return html_writer::tag('a', html_writer::start_tag('i', array('class' => $icon . ' fa fa-fw')) .

@@ -35,7 +35,7 @@ $name = 'theme_handlebar/website';
 $title = get_string('website', 'theme_handlebar');
 $description = get_string('websitedesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -50,10 +50,10 @@ $page->add($setting);
 
 // Facebook url setting.
 $name = 'theme_handlebar/facebook';
-$title = get_string(        'facebook', 'theme_handlebar');
-$description = get_string(      'facebookdesc', 'theme_handlebar');
+$title = get_string('facebook', 'theme_handlebar');
+$description = get_string('facebookdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -62,7 +62,7 @@ $name = 'theme_handlebar/flickr';
 $title = get_string('flickr', 'theme_handlebar');
 $description = get_string('flickrdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -71,7 +71,7 @@ $name = 'theme_handlebar/twitter';
 $title = get_string('twitter', 'theme_handlebar');
 $description = get_string('twitterdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -80,7 +80,7 @@ $name = 'theme_handlebar/googleplus';
 $title = get_string('googleplus', 'theme_handlebar');
 $description = get_string('googleplusdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -89,7 +89,7 @@ $name = 'theme_handlebar/linkedin';
 $title = get_string('linkedin', 'theme_handlebar');
 $description = get_string('linkedindesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -98,7 +98,7 @@ $name = 'theme_handlebar/tumblr';
 $title = get_string('tumblr', 'theme_handlebar');
 $description = get_string('tumblrdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -107,7 +107,7 @@ $name = 'theme_handlebar/pinterest';
 $title = get_string('pinterest', 'theme_handlebar');
 $description = get_string('pinterestdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -116,7 +116,7 @@ $name = 'theme_handlebar/instagram';
 $title = get_string('instagram', 'theme_handlebar');
 $description = get_string('instagramdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -125,7 +125,7 @@ $name = 'theme_handlebar/youtube';
 $title = get_string('youtube', 'theme_handlebar');
 $description = get_string('youtubedesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -134,7 +134,7 @@ $name = 'theme_handlebar/vimeo';
 $title = get_string('vimeo', 'theme_handlebar');
 $description = get_string('vimeodesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -143,7 +143,7 @@ $name = 'theme_handlebar/skype';
 $title = get_string('skype', 'theme_handlebar');
 $description = get_string('skypedesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -152,7 +152,7 @@ $name = 'theme_handlebar/social1';
 $title = get_string('sociallink', 'theme_handlebar');
 $description = get_string('sociallinkdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -169,7 +169,7 @@ $name = 'theme_handlebar/social2';
 $title = get_string('sociallink', 'theme_handlebar');
 $description = get_string('sociallinkdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -186,7 +186,7 @@ $name = 'theme_handlebar/social3';
 $title = get_string('sociallink', 'theme_handlebar');
 $description = get_string('sociallinkdesc', 'theme_handlebar');
 $default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

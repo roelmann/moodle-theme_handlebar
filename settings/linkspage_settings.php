@@ -51,7 +51,7 @@ for ($i = 1; $i <= 6; $i++) {
     $title = get_string('stafflinkurl', 'theme_handlebar');
     $description = get_string('stafflinkurldesc', 'theme_handlebar');
     $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
     $page->add($setting);
 
     // Staff Link - icon.
@@ -84,7 +84,7 @@ for ($i = 1; $i <= 6; $i++) {
     $title = get_string('studentlinkurl', 'theme_handlebar');
     $description = get_string('studentlinkurldesc', 'theme_handlebar');
     $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
     $page->add($setting);
 
     // Student Link - icon.

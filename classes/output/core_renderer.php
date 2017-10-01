@@ -314,7 +314,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return renderer context for staff user content.
      */
     public function staffblocksmodal() {
-        global $PAGE, $DB, $COURSE;
+        global $PAGE, $DB, $COURSE, $CFG;
         if (ISSET($COURSE->id) && $COURSE->id > 1) {
             $hascoursegroup = array(
                 'title' => get_string('modalcoursesettings', 'theme_handlebar'),
@@ -368,58 +368,60 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
             $enrol = $DB->get_record('enrol', array('courseid' => $COURSE->id, 'enrol' => 'manual'));
             $enrolinstance = $enrol->id;
+            $courseid = $PAGE->course->id;
+            if ($CFG->version > 2017092799 ) {
+                 $newurl = new moodle_url('/user/index.php', array('id' => $courseid));
+            } else {
+                $newurl = new moodle_url('/enrol/users.php', array('id' => $courseid));
+            }
 
             $usersgrouplinks = array(
                 array(
                     'name' => get_string('manageusers', 'theme_handlebar'),
-                    if ($CFG->version > 2017092799 ) {
-                        'url' => new moodle_url('/user/index.php', array('id' => $PAGE->course->id)),
-                    } else {
-                        'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id)),
-                    }
+                    'url' => $newurl,
                     'icon' => 'address-book-o'
                 ),
                 array(
                     'name' => get_string('manualenrol', 'theme_handlebar'),
                     'url' => new moodle_url('/enrol/manual/manage.php',
-                        array('enrolid' => $enrolinstance, 'id' => $PAGE->course->id)),
+                        array('enrolid' => $enrolinstance, 'id' => $courseid)),
                     'icon' => 'user-plus'
                 ),
                 array(
                     'name' => get_string('usergroups', 'theme_handlebar'),
-                    'url' => new moodle_url('/group/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/group/index.php', array('id' => $courseid)),
                     'icon' => 'group'
                 ),
                 array(
                     'name' => get_string('enrolmentmethods', 'theme_handlebar'),
-                    'url' => new moodle_url('/enrol/instances.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/enrol/instances.php', array('id' => $courseid)),
                     'icon' => 'address-card-o'
                 ),
             );
             $reportsgrouplinks = array(
                 array(
                     'name' => get_string('usergrades', 'theme_handlebar'),
-                    'url' => new moodle_url('/grade/report/grader/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/grade/report/grader/index.php', array('id' => $courseid)),
                     'icon' => 'bar-chart'
                 ),
                 array(
                     'name' => get_string('logs', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/log/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/report/log/index.php', array('id' => $courseid)),
                     'icon' => 'server'
                 ),
                 array(
                     'name' => get_string('livelogs', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/loglive/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/report/loglive/index.php', array('id' => $courseid)),
                     'icon' => 'tasks'
                 ),
                 array(
                     'name' => get_string('participation', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/participation/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/report/participation/index.php', array('id' => $courseid)),
                     'icon' => 'street-view'
                 ),
                 array(
                     'name' => get_string('activity', 'theme_handlebar'),
-                    'url' => new moodle_url('/report/outline/index.php', array('id' => $PAGE->course->id)),
+                    'url' => new moodle_url('/report/outline/index.php', array('id' => $courseid)),
                     'icon' => 'user-circle-o'
                 ),
             );

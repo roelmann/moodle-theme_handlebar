@@ -372,7 +372,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $usersgrouplinks = array(
                 array(
                     'name' => get_string('manageusers', 'theme_handlebar'),
-                    'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id)),
+                    if ($CFG->version > 2017092799 ) {
+                        'url' => new moodle_url('/user/index.php', array('id' => $PAGE->course->id)),
+                    } else {
+                        'url' => new moodle_url('/enrol/users.php', array('id' => $PAGE->course->id)),
+                    }
                     'icon' => 'address-book-o'
                 ),
                 array(

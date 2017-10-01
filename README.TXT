@@ -24,10 +24,14 @@ Also, Handlebar is designed to utilise additional block regions - a TopBar regio
 which will host blocks horizontally and [COMING SOON] several block region 'pages'
 which will pull out as sliders rather than occupy space on the main page.
 
+NOTE: github MASTER is for development purposes - always use STABLE branches in production
+
 Richard
 
 CHANGELOG
 ---------
+3.4.0.0         Secure url settings with PARAM_URL
+                Adapt links for new user/participant page
 3.3.1.1         Bug fixes - progress radial
                 Rationalise moodle.scss
 3.3.1.0         STABLE RELEASE

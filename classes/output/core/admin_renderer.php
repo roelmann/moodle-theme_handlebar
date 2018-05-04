@@ -36,6 +36,6 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/renderer.php');
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class admin_renderer extends \theme_boost\output\core\admin_renderer {
+//class admin_renderer extends \theme_boost\output\core\admin_renderer {
     // Error message when this class is not included, but even if empty it works.
-}
+//}

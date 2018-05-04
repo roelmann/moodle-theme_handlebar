@@ -1,6 +1,6 @@
 /* Theme styles.
  * =============
- * These are the separate styles for theme_handlebar. They should not include
+ * These are the separate styles for theme_waxed. They should not include
  * colours or any other variable that would be controlled by the theme preset
  * or settings.
  */
@@ -10,7 +10,7 @@
  * Note: This breaks the rule above - cannot use opacity as that would affect
  * all child elements too, therefore uses a pale grey with alpha channel bkg. */
 [data-region="drawer"] {
-    background-color: rgba(100, 100, 100, 0.4);
+    background-color: rgba(100, 100, 100, 0.3);
 }
 
 /* Give headings in the header an outline shadow.
@@ -36,6 +36,7 @@ header#page-header .page-header-headings h1 {
     padding: 10px 15px 15px;
     .navbar-brand {
         padding-top: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -90,22 +91,6 @@ header#page-header .card .withimage {
     height: 100%;
 }
 
-/* SIDE-TOP BLOCK REGION LAYOUT.
- * ============================= */
-#block-region-side-top {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: stretch;
-    align-items: stretch;
-}
-#block-region-side-top .block {
-    order: 0;
-    flex: 1 1 auto;
-    align-self: auto;
-}
-
 /* BLOCKS MODAL.
  * ============= */
 .path-course .context-header-settings-menu {
@@ -132,7 +117,6 @@ header#page-header .card .withimage {
             opacity: 0.6;
     }
 }
-
 
 section#slider1_blocksmodal,
 section#slider2_blocksmodal,
@@ -235,3 +219,4 @@ section#slider4_blocksmodal {
 #myoverview_timeline_courses div[data-region="course-events-container"] {
     padding: 15px;
 }
+

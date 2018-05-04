@@ -60,14 +60,7 @@
         "hasregionmainsettingsmenu": false
     }
 }}
-{{{ output.doctype }}}
-<html {{{ output.htmlattributes }}}>
-<head>
-    <title>{{{ output.page_title }}}</title>
-    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
-    {{{ output.standard_head_html }}}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+{{> theme_boost/head }}
 
 <body {{{ bodyattributes }}}>
 
@@ -75,55 +68,59 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{>theme_boost/header}}
+    {{>theme_boost/navbar}}
 
     <div id="page" class="container-fluid">
         {{{ output.full_header }}}
 
         <div id="page-content" class="row">
-            <div id="region-main-box" class="col-xs-12">
+            <div id="region-main-box" class="col-12">
                 {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="hidden-print {{#haspreblocks}}has-blocks{{/haspreblocks}}">
+                <div id="region-main-settings-menu" class="d-print-none hidden-print {{#haspreblocks}}has-blocks{{/haspreblocks}}">
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
+                
                 {{#hastopblocks}}
-                <section data-region="blocks-row" class="hidden-print">
+                <section data-region="blocks-row" class="d-print-none hidden-print">
                     {{{ sidetopblocks }}}
                 </section>
                 {{/hastopblocks}}
 
-                <section id="region-main" {{#haspreblocks}}class="has-blocks"{{/haspreblocks}}>
-                    <div class="card card-block">
-                    {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
-                    {{/hasregionmainsettingsmenu}}
-                    {{{ output.course_content_header }}}
-                    {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+                <section id="region-main" {{#haspreblocks}}class="has-blocks mb-3"{{/haspreblocks}}>
+                    <div class="card">
+						<div class="card-body">
+							{{#hasregionmainsettingsmenu}}
+								<div class="region_main_settings_menu_proxy"></div>
+							{{/hasregionmainsettingsmenu}}
+							{{{ output.course_content_header }}}
+							{{{ output.main_content }}}
+                            {{{ output.activity_navigation }}}
+							{{{ output.course_content_footer }}}
+						</div>
                     </div>
                 </section>
 
                 {{#haspreblocks}}
-                <section data-region="blocks-column" class="hidden-print">
+                <section data-region="blocks-column" class="d-print-none hidden-print">
                     {{{ sidepreblocks }}}
                 </section>
                 {{/haspreblocks}}
-                <section data-region="blocks-column" class="hidden-print modal fade" id="slider1_blocksmodal" aria-labelledby="blockslider1modal">
+                <section data-region="blocks-column" class="d-print-none hidden-print modal fade" id="slider1_blocksmodal" aria-labelledby="blockslider1modal">
                     {{{ blocksslider1 }}}
                 </section>
                 {{#hasblocksslider2}}
-                <section data-region="blocks-column" class="hidden-print modal fade" id="slider2_blocksmodal" aria-labelledby="blockslider2modal">
+                <section data-region="blocks-column" class="d-print-none hidden-print modal fade" id="slider2_blocksmodal" aria-labelledby="blockslider2modal">
                     {{{ blocksslider2 }}}
                 </section>
                 {{/hasblocksslider2}}
                 {{#hasblocksslider3}}
-                <section data-region="blocks-column" class="hidden-print modal fade" id="slider3_blocksmodal" aria-labelledby="blockslider3modal">
+                <section data-region="blocks-column" class="d-print-none hidden-print modal fade" id="slider3_blocksmodal" aria-labelledby="blockslider3modal">
                     {{{ blocksslider3 }}}
                 </section>
                 {{/hasblocksslider3}}
                 {{#hasblocksslider4}}
-                <section data-region="blocks-column" class="hidden-print modal fade" id="slider4_blocksmodal" aria-labelledby="blockslider4modal">
+                <section data-region="blocks-column" class="d-print-none hidden-print modal fade" id="slider4_blocksmodal" aria-labelledby="blockslider4modal">
                     {{{ blocksslider4 }}}
                 </section>
                 {{/hasblocksslider4}}

@@ -17,7 +17,7 @@
  * ----------------------------------------------
  * This ensures they will stand out whatever the background image used. */
 header#page-header .page-header-headings h1 {
-    text-shadow: $brand-primary 0 0 4px;
+    text-shadow: $primary 0 0 4px;
 }
 
 /* Centre the social icons in the footer.
@@ -45,8 +45,8 @@ header#page-header .page-header-headings h1 {
 #page-header {
     .card {
         border-radius: $border-radius-lg;
-        border: 3px solid $brand-primary;
-        box-shadow: 2px 2px 2px $brand-info;
+        border: 3px solid $primary;
+        box-shadow: 2px 2px 2px $info;
 
     }
 }
@@ -71,10 +71,10 @@ header#page-header .page-header-headings h1 {
         padding-top: 3rem;
         padding-bottom: 3rem;
         border-radius: $border-radius-lg * 2;
-        border: $brand-primary solid 4px;
+        border: $primary solid 4px;
         box-shadow: 6px 6px 3px $brand-info;
         .card-title {
-            border-bottom: 1px solid $brand-primary;
+            border-bottom: 1px solid $primary;
         }
     }
 }
@@ -134,22 +134,22 @@ section#slider4_blocksmodal {
         font-size: $font-size-sm;
     }
     h1 {
-        font-size: $font-size-h1 * 0.85;
+        font-size: $h1-font-size * 0.85;
     }
     h2 {
-        font-size: $font-size-h2 * 0.85;
+        font-size: $h2-font-size * 0.85;
     }
     h3 {
-        font-size: $font-size-h3 * 0.85;
+        font-size: $h3-font-size * 0.85;
     }
     h4 {
-        font-size: $font-size-h4 * 0.85;
+        font-size: $h4-font-size * 0.85;
     }
     h5 {
-        font-size: $font-size-h5 * 0.85;
+        font-size: $h5-font-size * 0.85;
     }
     h6 {
-        font-size: $font-size-h6 * 0.85;
+        font-size: $h6-font-size * 0.85;
     }
     .modal-body .block-region {
         display: flex;

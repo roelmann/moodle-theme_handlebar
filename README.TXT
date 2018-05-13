@@ -30,6 +30,8 @@ Richard
 
 CHANGELOG
 ---------
+3.5.1.0         Add Privacy api
+                Make stable for 3.5 new Boost version
 3.5.0.0         Rework theme for Moodle3.5
 3.4.0.0         Secure url settings with PARAM_URL
                 Adapt links for new user/participant page

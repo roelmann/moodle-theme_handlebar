@@ -30,6 +30,7 @@ Richard
 
 CHANGELOG
 ---------
+3.5.1.1         Correct course header image display bug
 3.5.1.0         Add Privacy api
                 Make stable for 3.5 new Boost version
 3.5.0.0         Rework theme for Moodle3.5

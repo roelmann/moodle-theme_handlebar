@@ -40,8 +40,6 @@ $THEME->parents = ['boost'];
  * to generate dynamically from the scss presets and settings and is not
  * used by Moodle's default editor (Atto).
  */
-$THEME->sheets = ['fonts'];
-$THEME->editor_sheets = [''];
 
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.

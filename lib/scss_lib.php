@@ -46,7 +46,7 @@ function theme_handlebar_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-    
+
     $scss .= file_get_contents($CFG->dirroot . '/theme/handlebar/scss/defaultvariables.scss');
 
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;

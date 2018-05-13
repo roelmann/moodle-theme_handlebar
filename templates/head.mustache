@@ -15,22 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost/maintenance
-
-    Boost maintenance layout template.
-
-    Context variables required for this template:
-    * output - The core renderer for the page
-
-    Example context (json):
-    {
-        "output": {
-            "doctype": "<!DOCTYPE html>",
-            "page_title": "Test page",
-            "favicon": "favicon.ico",
-            "main_content": "<h1>Headings make html validators happier</h1>"
-         }
-    }
+    Page header.
 }}
 {{{ output.doctype }}}
 <html {{{ output.htmlattributes }}}>
@@ -43,40 +28,3 @@
     {{{ output.standard_head_html }}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-<body {{{ output.body_attributes }}}>
-
-<div id="page-wrapper">
-
-    {{{ output.standard_top_of_body_html }}}
-
-    <div id="page" class="container card card-body">
-
-        <div class="row">
-            <div class="col-12 py-3">
-                {{{ output.page_heading }}}
-            </div>
-        </div>
-
-        <div id="page-content" class="row">
-            <section id="region-main" class="col-12">
-                {{{ output.main_content }}}
-            </section>
-        </div>
-
-    </div>
-</div>
-
-<footer id="page-footer" class="py-3 bg-dark text-light">
-    <div class="container">
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-    {{{ output.social_icons }}}
-</footer>
-
-</body>
-</html>
-{{#js}}
-require(['theme_boost/loader']);
-{{/js}}

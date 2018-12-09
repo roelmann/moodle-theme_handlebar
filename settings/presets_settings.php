@@ -31,7 +31,7 @@ $page = new admin_settingpage('theme_handlebar_presets', get_string('presets_set
 $name = 'theme_handlebar/preset';
 $title = get_string('preset', 'theme_handlebar');
 $description = get_string('preset_desc', 'theme_handlebar');
-$presetchoices = '';
+$presetchoices = Array();
 // Add preset files from theme preset folder.
 $iterator = new DirectoryIterator($CFG->dirroot . '/theme/handlebar/scss/preset/');
 foreach ($iterator as $presetfile) {
